@@ -11,6 +11,18 @@
     <content type="html"><![CDATA[<p>测试文章</p><p>##这是一个测试文档</p><p><img src="/2024/10/30/text01/6.jpg" alt="图6"></p>]]></content>
     
     
+    <categories>
+      
+      <category>test</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>test</tag>
+      
+    </tags>
     
   </entry>
   
@@ -23,6 +35,12 @@
     
     <content type="html"><![CDATA[<p>测试文章</p><p><img src="/2024/10/30/text02/6.jpg" alt="图6"></p>]]></content>
     
+    
+    <categories>
+      
+      <category>test</category>
+      
+    </categories>
     
     
   </entry>
