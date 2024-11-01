@@ -31,6 +31,25 @@
   
   
   <entry>
+    <title>text02</title>
+    <link href="/2024/10/30/text02/"/>
+    <url>/2024/10/30/text02/</url>
+    
+    <content type="html"><![CDATA[<p>测试文章</p><p><img src="/2024/10/30/text02/6.jpg" alt="图6"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>test</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>vue组件的生命周期</title>
     <link href="/2024/10/30/text01/"/>
     <url>/2024/10/30/text01/</url>
@@ -52,25 +71,6 @@
       <tag>vue</tag>
       
     </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>text02</title>
-    <link href="/2024/10/30/text02/"/>
-    <url>/2024/10/30/text02/</url>
-    
-    <content type="html"><![CDATA[<p>测试文章</p><p><img src="/2024/10/30/text02/6.jpg" alt="图6"></p>]]></content>
-    
-    
-    <categories>
-      
-      <category>test</category>
-      
-    </categories>
-    
     
   </entry>
   
