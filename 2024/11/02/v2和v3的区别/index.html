@@ -1,0 +1,772 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/ti.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#6c9bc3">
+  <meta name="author" content="Long">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="vue2和vue3的区别v2和v3双向绑定的方法不同 vue2: Object.defineProperty() （添加值底层走的是for循环） ​        后添加的属性是劫持不到的 vue3：new Proxy（） ​	即使是后添加的也可以劫持到 （底层没有用循环，是直接设置的）  关于$set vue3中不存在数据更新了视图没更新的问题，所以vue2中的$set就没有用了 关于写法vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="v2和v3的区别">
+<meta property="og:url" content="http://example.com/2024/11/02/v2%E5%92%8Cv3%E7%9A%84%E5%8C%BA%E5%88%AB/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="vue2和vue3的区别v2和v3双向绑定的方法不同 vue2: Object.defineProperty() （添加值底层走的是for循环） ​        后添加的属性是劫持不到的 vue3：new Proxy（） ​	即使是后添加的也可以劫持到 （底层没有用循环，是直接设置的）  关于$set vue3中不存在数据更新了视图没更新的问题，所以vue2中的$set就没有用了 关于写法vue">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/sun.jpg">
+<meta property="article:published_time" content="2024-11-02T08:18:32.000Z">
+<meta property="article:modified_time" content="2024-11-02T13:59:50.846Z">
+<meta property="article:author" content="Long">
+<meta property="article:tag" content="vue">
+<meta property="article:tag" content="面试">
+<meta property="article:tag" content="vue3">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/sun.jpg">
+  
+  
+  
+  <title>v2和v3的区别 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"MBLsaXXJbwESZxW0GrG5w9wA-MdYXbMMI","app_key":"SrCATvjBqk9Eq0Va3UzvJrh6","server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>泷的个人博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>泷</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/%E5%B9%BD%E7%81%B5.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.2)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="v2和v3的区别"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-11-02 16:18" pubdate>
+          2024年11月2日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          612 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          6 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">v2和v3的区别</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="vue2和vue3的区别"><a href="#vue2和vue3的区别" class="headerlink" title="vue2和vue3的区别"></a>vue2和vue3的区别</h2><h3 id="v2和v3双向绑定的方法不同"><a href="#v2和v3双向绑定的方法不同" class="headerlink" title="v2和v3双向绑定的方法不同"></a>v2和v3双向绑定的方法不同</h3><blockquote>
+<p>vue2: Object.defineProperty()</p>
+<p>（添加值底层走的是for循环）</p>
+<p>​        后添加的属性是劫持不到的</p>
+<p>vue3：new Proxy（）</p>
+<p>​	即使是后添加的也可以劫持到</p>
+<p>（底层没有用循环，是直接设置的）</p>
+</blockquote>
+<h3 id="关于-set"><a href="#关于-set" class="headerlink" title="关于$set"></a>关于$set</h3><p> vue3中不存在数据更新了视图没更新的问题，所以vue2中的$set就没有用了</p>
+<h3 id="关于写法"><a href="#关于写法" class="headerlink" title="关于写法"></a>关于写法</h3><p>vue2 是选项式api ，VUE3是组合式api，vue3向下兼容，也可以使用选项式api或setup语法糖形式</p>
+<h3 id="v-if-和v-for优先级不同"><a href="#v-if-和v-for优先级不同" class="headerlink" title="v-if 和v-for优先级不同"></a>v-if 和v-for优先级不同</h3><p>v2   for＞if</p>
+<p>v3 ＞for</p>
+<h3 id="ref-和-children-也不同"><a href="#ref-和-children-也不同" class="headerlink" title="$ref 和$children 也不同"></a>$ref 和$children 也不同</h3><h2 id="vue3-hooks"><a href="#vue3-hooks" class="headerlink" title="vue3  hooks"></a>vue3  hooks</h2><p><strong>vue3用setup该如何组织代码</strong> </p>
+<p>mixins (混入)&#x3D;&#x3D;&gt; 写了一些方法或属性，可以在全局或者某个组件中使用，没有template</p>
+<p>说明：hooks（就是函数式），主要就是让功能模块细分，提升项目的维护性</p>
+<p> 把项目中的一些功能代码抽离到hooks文件夹下 </p>
+<h2 id="vue3特性"><a href="#vue3特性" class="headerlink" title="vue3特性"></a>vue3特性</h2><h3 id="vue3如果用setup写，如何获取类似vue2中的this"><a href="#vue3如果用setup写，如何获取类似vue2中的this" class="headerlink" title="vue3如果用setup写，如何获取类似vue2中的this"></a>vue3如果用setup写，如何获取类似vue2中的this</h3>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> &#123; getCurrentInstance &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vue&#x27;</span><br><span class="hljs-keyword">let</span> app = <span class="hljs-title function_">getCurrentInstance</span>()<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>( app.<span class="hljs-property">appContext</span>.<span class="hljs-property">app</span>.<span class="hljs-property">config</span>.<span class="hljs-property">globalProperties</span>.<span class="hljs-property">$loading</span> )<br></code></pre></td></tr></table></figure>
+
+<h3 id="vue3-常用的api"><a href="#vue3-常用的api" class="headerlink" title="vue3 常用的api"></a>vue3 常用的api</h3><h4 id="createApp-》-创建一个应用实例"><a href="#createApp-》-创建一个应用实例" class="headerlink" title="createApp() &#x3D;&#x3D;》 创建一个应用实例"></a>createApp() &#x3D;&#x3D;》 创建一个应用实例</h4><p>说明：等于vue2的 new vue（）</p>
+<p>使用场景：写插件</p>
+<h4 id="provide-inject-》依赖注入"><a href="#provide-inject-》依赖注入" class="headerlink" title="provide&#x2F;inject &#x3D;&#x3D;》依赖注入"></a>provide&#x2F;inject &#x3D;&#x3D;》依赖注入</h4><p>说明：其实就是传值</p>
+<p>使用场景：某一个父组件传值到后代，层级过多传递麻烦会使用这种方式</p>
+<p>缺点：不好维护，难以查询数据来源</p>
+<h4 id="directive"><a href="#directive" class="headerlink" title="directive"></a>directive</h4><p>–自定义指令</p>
+<p>– 后台管理系统中的按钮权限控制，（一个用户拥有某些权限，但是只能查看和修改，不能删除）</p>
+<h4 id="mixin"><a href="#mixin" class="headerlink" title="mixin"></a>mixin</h4><p>– 1.全局混入 2.局部</p>
+<p>– 可以添加生命周期，我在小程序的分享功能会用到</p>
+<p>– 不好维护和查询数据源</p>
+<h4 id="app-config-globalProperties"><a href="#app-config-globalProperties" class="headerlink" title="app.config.globalProperties"></a>app.config.globalProperties</h4><p>– 获取vue这个全局对象的属性和方法</p>
+<p>–自己封装插件的时候需要把方法添加到对象中</p>
+<h4 id="nextTick"><a href="#nextTick" class="headerlink" title="nextTick"></a>nextTick</h4><h4 id="computed"><a href="#computed" class="headerlink" title="computed"></a>computed</h4><h4 id="reactive、ref"><a href="#reactive、ref" class="headerlink" title="reactive、ref"></a>reactive、ref</h4><p>用来定义数据的，和vue2的data类似</p>
+<h4 id="watch"><a href="#watch" class="headerlink" title="watch"></a>watch</h4><h4 id="markRow"><a href="#markRow" class="headerlink" title="markRow()"></a>markRow()</h4><p>不被new Proxy代理，其实就是静态的数据</p>
+<h4 id="defineProps"><a href="#defineProps" class="headerlink" title="defineProps()"></a>defineProps()</h4><p>– 父组件传递的值，子组件使用的是setup的形式，需要用defineProps接收</p>
+<h4 id="defineEmits（）"><a href="#defineEmits（）" class="headerlink" title="defineEmits（）"></a>defineEmits（）</h4><h4 id="slot"><a href="#slot" class="headerlink" title="slot"></a>slot</h4><h3 id="vue3的响应式数据类型"><a href="#vue3的响应式数据类型" class="headerlink" title="vue3的响应式数据类型"></a>vue3的响应式数据类型</h3><p> ref (基本类型)、reactive（复杂类型）、toRef（解构某个值）、toRefs（解构多个值）</p>
+<h3 id="teleport组件（传送门）及其应用场景"><a href="#teleport组件（传送门）及其应用场景" class="headerlink" title="teleport组件（传送门）及其应用场景"></a>teleport组件（传送门）及其应用场景</h3><p>场景：弹出框</p>
+<p>假如自己写弹出框，需要显示在页面居中位置，不受当前组件的限制，可以把盒子传送到body中</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/vue/" class="category-chain-item">vue</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/vue/" class="print-no-link">#vue</a>
+      
+        <a href="/tags/%E9%9D%A2%E8%AF%95/" class="print-no-link">#面试</a>
+      
+        <a href="/tags/vue3/" class="print-no-link">#vue3</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>v2和v3的区别</div>
+      <div>http://example.com/2024/11/02/v2和v3的区别/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Long</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年11月2日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/11/02/9-vue2/" title="9-vue2">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">9-vue2</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/11/02/vue6-8/" title="vue6-8:自定义指令、绑定、原理">
+                        <span class="hidden-mobile">vue6-8:自定义指令、绑定、原理</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"MBLsaXXJbwESZxW0GrG5w9wA-MdYXbMMI","appKey":"SrCATvjBqk9Eq0Va3UzvJrh6","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量: 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数: 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

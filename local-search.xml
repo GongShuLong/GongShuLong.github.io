@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>智学空间开发文档</title>
+    <link href="/2024/11/08/%E6%99%BA%E5%AD%A6%E7%A9%BA%E9%97%B4/"/>
+    <url>/2024/11/08/%E6%99%BA%E5%AD%A6%E7%A9%BA%E9%97%B4/</url>
+    
+    <content type="html"><![CDATA[<h1 id="智学空间开发文档"><a href="#智学空间开发文档" class="headerlink" title="智学空间开发文档"></a>智学空间开发文档</h1><h1 id="项目概述"><a href="#项目概述" class="headerlink" title="项目概述"></a>项目概述</h1><p><strong>项目名称</strong>：智慧教育平台</p><p><strong>主题</strong>：利用AI技术和虚拟现实为用户提供个性化的在线学习体验。</p><p><strong>目标</strong>：通过智能分析和推荐、虚拟课堂等功能，为学生提供互动式、个性化的学习环境。</p><p><strong>核心亮点</strong>：</p><ol><li><strong>个性化学习推荐</strong>：AI分析学习行为并推荐适合的内容。</li><li><strong>智能答疑助手</strong>：实时解答问题，提供学习建议。</li><li><strong>虚拟课堂体验</strong>：虚拟教师和VR场景提升沉浸感</li></ol><h1 id="项目名称"><a href="#项目名称" class="headerlink" title="项目名称"></a>项目名称</h1><ul><li>智学空间</li></ul><p><img src="/2024/11/08/%E6%99%BA%E5%AD%A6%E7%A9%BA%E9%97%B4/name.png" alt="智学空间"></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>vue3</tag>
+      
+      <tag>项目</tag>
+      
+      <tag>智学空间</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>项目0-1开发流程</title>
+    <link href="/2024/11/08/%E9%A1%B9%E7%9B%AE0-1%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/"/>
+    <url>/2024/11/08/%E9%A1%B9%E7%9B%AE0-1%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/</url>
+    
+    <content type="html"><![CDATA[<h1 id="web项目从0-1开发流程"><a href="#web项目从0-1开发流程" class="headerlink" title="web项目从0-1开发流程"></a>web项目从0-1开发流程</h1><p><strong>一般原则：敏捷开发</strong></p><p><strong>0.</strong> 项目背景</p><h2 id="项目流程规划"><a href="#项目流程规划" class="headerlink" title="项目流程规划"></a>项目流程规划</h2><p>产品画流程图，脑图，原型图，简单的ui图</p><h2 id="需求评审会"><a href="#需求评审会" class="headerlink" title="需求评审会"></a>需求评审会</h2><p>分析需求是否可执行，工时评估，交付日期</p><p><strong>扑克估时</strong></p><h2 id="开发环节-ui设计环节"><a href="#开发环节-ui设计环节" class="headerlink" title="开发环节*ui设计环节"></a>开发环节*ui设计环节</h2><p>​后端先行，开发接口，制定逻辑等等。</p><p>​ui画设计图。</p><p>​前端框架搭建，出图后按图实施</p><h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>​大项目可能有ua环境（预生产环境）：测试环境会产生很多脏数据，有时候没有办法删除</p><h2 id="上线-回归测试"><a href="#上线-回归测试" class="headerlink" title="上线+回归测试"></a>上线+回归测试</h2><p>​部署：（原理：把打包后的文件复制到服务器上，然后用nginx代理到域名，展示给用户）</p><p>​手动部署：打开服务器，把文件复制过去</p><p>​自动部署：git提交代码，触发钩子（触发onshow、onload等周期），自动执行打包命令，打包好后自动复制到服务器上。</p><p>​自动比较安全，遇到问题会自动回滚，回到上个版本</p><hr><h1 id="前端要做的事"><a href="#前端要做的事" class="headerlink" title="前端要做的事"></a>前端要做的事</h1><p>​交互流程的制定，技术的选型，组件抽离（发现重复的去封装），部署</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>软工</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>项目从0开发</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>无感登录</title>
+    <link href="/2024/11/07/%E6%97%A0%E6%84%9F%E7%99%BB%E5%BD%95/"/>
+    <url>/2024/11/07/%E6%97%A0%E6%84%9F%E7%99%BB%E5%BD%95/</url>
+    
+    <content type="html"><![CDATA[<h1 id="无感登录"><a href="#无感登录" class="headerlink" title="无感登录"></a>无感登录</h1><blockquote><p>处理登录时token过期问题，无需用户重新登录，我们通过代码重新拉取最新token令牌</p></blockquote><p>一般都采用第一种方法</p><h2 id="法一：在响应中拦截，判断token返回过期后，调用刷新token的接口"><a href="#法一：在响应中拦截，判断token返回过期后，调用刷新token的接口" class="headerlink" title="法一：在响应中拦截，判断token返回过期后，调用刷新token的接口"></a>法一：在响应中拦截，判断token返回过期后，调用刷新token的接口</h2><p>需要后端再传一个过期时间字段</p><p><strong>流程</strong></p><h3 id="登录成功后保存token-和refresh-token"><a href="#登录成功后保存token-和refresh-token" class="headerlink" title="登录成功后保存token 和refresh_token"></a>登录成功后保存token 和refresh_token</h3><h3 id="在响应拦截器中的401状态码引入刷新token的api方法调用"><a href="#在响应拦截器中的401状态码引入刷新token的api方法调用" class="headerlink" title="在响应拦截器中的401状态码引入刷新token的api方法调用"></a>在响应拦截器中的401状态码引入刷新token的api方法调用</h3><h3 id="替换保存本地新的token"><a href="#替换保存本地新的token" class="headerlink" title="替换保存本地新的token"></a>替换保存本地新的token</h3><h3 id="把错误对象中的token替换"><a href="#把错误对象中的token替换" class="headerlink" title="把错误对象中的token替换"></a>把错误对象中的token替换</h3><h3 id="再次发送未完成的请求"><a href="#再次发送未完成的请求" class="headerlink" title="再次发送未完成的请求"></a>再次发送未完成的请求</h3><h3 id="如果refresh-token过期了，判断是否过期，过期了就清除所有token重新登录"><a href="#如果refresh-token过期了，判断是否过期，过期了就清除所有token重新登录" class="headerlink" title="如果refresh_token过期了，判断是否过期，过期了就清除所有token重新登录"></a>如果refresh_token过期了，判断是否过期，过期了就清除所有token重新登录</h3><h2 id="法2：后端返回过期时间，前端通过判断token的过期时间，去重新调用刷新token接口"><a href="#法2：后端返回过期时间，前端通过判断token的过期时间，去重新调用刷新token接口" class="headerlink" title="法2：后端返回过期时间，前端通过判断token的过期时间，去重新调用刷新token接口"></a>法2：后端返回过期时间，前端通过判断token的过期时间，去重新调用刷新token接口</h2><p>缺点：当本地时间被篡改，会出现问题</p><h2 id="写法3：-写定时器，定时刷新token"><a href="#写法3：-写定时器，定时刷新token" class="headerlink" title="写法3： 写定时器，定时刷新token"></a>写法3： 写定时器，定时刷新token</h2><p>如果不知道token的有效期，定时器时间不好把控</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>面试</tag>
+      
+      <tag>token</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>longShop</title>
+    <link href="/2024/11/07/longShop/"/>
+    <url>/2024/11/07/longShop/</url>
+    
+    <content type="html"><![CDATA[<h1 id="vue2电商项目"><a href="#vue2电商项目" class="headerlink" title="vue2电商项目"></a>vue2电商项目</h1><h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><h3 id="安装脚手架（全局安装一次就好）"><a href="#安装脚手架（全局安装一次就好）" class="headerlink" title="安装脚手架（全局安装一次就好）"></a>安装脚手架（全局安装一次就好）</h3><p>npm i @vue&#x2F;cli -g</p><h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><p>vue create longShop</p><p>选择功能，babel：把es6转成es3低级语法以实现浏览器兼容性</p><h2 id="调整目录结构"><a href="#调整目录结构" class="headerlink" title="调整目录结构"></a>调整目录结构</h2>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>vue</tag>
+      
+      <tag>vue2</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>js面试题</title>
+    <link href="/2024/11/04/js%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <url>/2024/11/04/js%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
+    
+    <content type="html"><![CDATA[<h1 id="JS相关面试题"><a href="#JS相关面试题" class="headerlink" title="JS相关面试题"></a>JS相关面试题</h1><h2 id="延迟加载"><a href="#延迟加载" class="headerlink" title="延迟加载"></a>延迟加载</h2><ul><li>async</li><li>defer</li></ul><p>用法:</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">defer</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;script.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure><blockquote><p>async: 和html同步解析，不是顺次执行，谁先下载完谁先执行</p></blockquote><blockquote><p>defer : 等HTML全部解析完成才会执行js，（按引入次序）顺序执行js</p></blockquote><h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h3 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h3><ul><li>string</li><li>number</li><li>boolean</li><li>undefined</li><li>null</li><li>symbol</li></ul><blockquote><p>symbol定义静态数据，不可被修改，symbol a &#x3D; symbol(11)</p></blockquote><h3 id="引用类型（复杂类型"><a href="#引用类型（复杂类型" class="headerlink" title="引用类型（复杂类型)"></a>引用类型（复杂类型)</h3><p>Object</p><h3 id="NAN-undefined-null"><a href="#NAN-undefined-null" class="headerlink" title="NAN ,undefined,null"></a>NAN ,undefined,null</h3><p>NAN是一个数值类型，但不是一个具体的数，一般出现NAN是由于一个  数+undefined得到的</p><p>null的类型是对象，undefined的类型是undefined</p><p>null有隐式转换，会被隐式转换成0</p><h2 id="宏任务和微任务"><a href="#宏任务和微任务" class="headerlink" title="宏任务和微任务"></a>宏任务和微任务</h2><h3 id="事件循环机制"><a href="#事件循环机制" class="headerlink" title="事件循环机制"></a>事件循环机制</h3><p>消息队列：是一个先进先出的队列，里面存放着各种消息</p><p>事件循环：指主线程重复从消息队列中拉取消息、执行的过程</p><blockquote><ol><li>js是单线程语言</li><li>js执行代码的流程：同步执行完&#x3D;&#x3D;》事件循环</li></ol></blockquote><p>事件循环包含宏任务和微任务</p><p>同步任务都执行完了，才会进入事件循环：请求、定时器、事件…</p><blockquote><p>微任务：promis.then</p><p>宏任务：setTimeOut。。。</p></blockquote><p><strong>要执行宏任务的前提是清空了所有的微任务</strong></p><p>每次执行事件循环都要先确保微任务都执行完了再执行宏任务</p><h2 id="Js作用域"><a href="#Js作用域" class="headerlink" title="Js作用域"></a>Js作用域</h2><p><strong>js是没有块级作用域的，函数除外</strong></p><h3 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h3><p>内部可以访问外部的变量，但是外部不能访问内部的变量</p><p>注：如果内部有，优先查找使用内部的，如果内部没有，就访问外部的，逐级向上查找</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js">(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;<br>    <span class="hljs-keyword">var</span> a = b =<span class="hljs-number">10</span>;    <br>&#125;)()<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(a);<span class="hljs-comment">//不能打印，报错</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(b);<span class="hljs-comment">// 正常打印 10</span><br><span class="hljs-comment">// 不能打印出a，但能打印出b，b没有声明默认挂载到window下，相当于window.b=10</span><br></code></pre></td></tr></table></figure><h3 id="js有变量提升机制，国外叫变量悬挂声明"><a href="#js有变量提升机制，国外叫变量悬挂声明" class="headerlink" title="js有变量提升机制，国外叫变量悬挂声明"></a>js有变量提升机制，国外叫变量悬挂声明</h3> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">fun</span>(<span class="hljs-params"></span>)&#123;<br>    <span class="hljs-comment">// var str;你看不到的，是js独有的机制</span><br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(str);<br>    <span class="hljs-keyword">var</span> str = <span class="hljs-string">&#x27;sss&#x27;</span><span class="hljs-comment">//如果不加入这行，会报错，加了次此行，会打印undefined</span><br>&#125;<br></code></pre></td></tr></table></figure><blockquote><ul><li><strong>做面试题的时候一定要先看本层作用域有没有此变量，注意变量提升</strong></li><li>在js中除了函数，其他都没有块级作用域</li><li>优先级：声明变量  》 声明普通函数 》参数 》变量提升</li></ul></blockquote><p>例1：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">c</span>(<span class="hljs-params"></span>)&#123;<br>    <span class="hljs-keyword">var</span> b = <span class="hljs-number">1</span>;   <br>    <span class="hljs-keyword">function</span> <span class="hljs-title function_">a</span>(<span class="hljs-params"></span>)&#123;  <br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(b);  <span class="hljs-comment">//undefined  先找本层作用域的，变量提升</span><br>        <span class="hljs-keyword">var</span> b = <span class="hljs-number">2</span>; <br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(b); <span class="hljs-comment">// 2</span><br>    &#125;<br>    <span class="hljs-title function_">a</span>();<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(b); <span class="hljs-comment">//1</span><br>&#125;<br><span class="hljs-title function_">c</span>();<br></code></pre></td></tr></table></figure><p>例2：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> name = <span class="hljs-string">&#x27;a&#x27;</span><br>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;<br>    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">typeof</span> name == <span class="hljs-string">&#x27;undefined&#x27;</span>)&#123;<br>        <span class="hljs-keyword">var</span> name = <span class="hljs-string">&#x27;b&#x27;</span><br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;111&#x27;</span>+name);<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;222&#x27;</span>+name);<br>    &#125;<br>&#125;)()<br></code></pre></td></tr></table></figure><p>例3：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">fun</span>(<span class="hljs-params">a</span>)&#123;<br>    <span class="hljs-keyword">var</span> a=<span class="hljs-number">10</span>;<br>    <span class="hljs-keyword">function</span> <span class="hljs-title function_">a</span>(<span class="hljs-params"></span>)&#123;&#125;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(a);<br>&#125;<br><span class="hljs-title function_">fun</span>(<span class="hljs-number">100</span>);<br></code></pre></td></tr></table></figure><h2 id="js对象考题"><a href="#js对象考题" class="headerlink" title="js对象考题"></a>js对象考题</h2><blockquote><p>js对象注意点：</p><ol><li><p>对象是通过new操作符构建的，所以对象之间都不相等(除引用外)</p></li><li><p>对象是引用类型</p></li><li><p>对象的key都是字符串类型</p></li><li><p>对象查找某个属性的方法 (原型链)</p><p>​先在对象本身查找 =&#x3D;&#x3D;&gt; 构造函数中找  ==&#x3D;&gt; 对象原型中找 &#x3D;&#x3D;》构造函数原型中查找 &#x3D;&#x3D;》对象上一层原型查找</p></li></ol></blockquote><h3 id="任何一个对象都是new出来的"><a href="#任何一个对象都是new出来的" class="headerlink" title="任何一个对象都是new出来的"></a>任何一个对象都是new出来的</h3><p>console.log([1,2,3]&#x3D;&#x3D;&#x3D;[1,2,3]) &#x2F;&#x2F; false </p><p>是两个不同的对象</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> arr1 = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]<br><span class="hljs-keyword">var</span> arr2 = arr1;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(arr1 === arr2); <span class="hljs-comment">// true</span><br></code></pre></td></tr></table></figure><p><strong>实际上是引用，把arr1的地址赋值给了arr2</strong>，指向的是同一个对象</p><h3 id="关于key"><a href="#关于key" class="headerlink" title="关于key"></a>关于key</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> a = &#123;&#125;<br><span class="hljs-keyword">var</span> b = &#123;<br>    <span class="hljs-attr">key</span>:<span class="hljs-string">&#x27;a&#x27;</span><br>&#125;<br><span class="hljs-keyword">var</span> c = &#123;<br>    <span class="hljs-attr">key</span>:<span class="hljs-string">&#x27;c&#x27;</span><br>&#125;<br>a[b]=<span class="hljs-string">&#x27;123&#x27;</span><br>a[c]=<span class="hljs-string">&#x27;456&#x27;</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(a[b]) <span class="hljs-comment">// 456</span><br></code></pre></td></tr></table></figure><p>原因： b和c都是一个对象，赋值时，a[b]会把b转化成字符串<code>[object Object]</code>,a[c]相当于给<code>[object Object]</code>重新赋值。</p><h4 id="关于对象与函数"><a href="#关于对象与函数" class="headerlink" title="关于对象与函数"></a>关于对象与函数</h4><blockquote><p> 每一个函数都自带一个prototype原型</p><p>​注意：对象拥有_<em>proto</em>_</p><p>new Fun 该构造函数的原型指向对象（new Fun)的原型</p></blockquote><h2 id="作用域，this指向，原型"><a href="#作用域，this指向，原型" class="headerlink" title="作用域，this指向，原型"></a>作用域，this指向，原型</h2><p>经典例题：</p><ol><li></li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">Foo</span>(<span class="hljs-params"></span>)&#123;<br>    getName = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">1</span>)&#125; <span class="hljs-comment">// 注意getName是全局的，是window.的</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>;<br>&#125;<br><br><span class="hljs-title class_">Foo</span>.<span class="hljs-property">getName</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">2</span>)&#125;<br><span class="hljs-title class_">Foo</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">getName</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;consloe.<span class="hljs-title function_">log</span>(<span class="hljs-number">3</span>)&#125;<br><span class="hljs-keyword">var</span> getName = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">4</span>)&#125;<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">getName</span>(<span class="hljs-params"></span>)&#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">5</span>)<br>&#125;<br><br><span class="hljs-title class_">Foo</span>.<span class="hljs-title function_">getName</span>()   <span class="hljs-comment">// 2</span><br><span class="hljs-title function_">getName</span>()      <span class="hljs-comment">// 4, 上一行没有括号，Fun没有调用，不会执行Fun里面的内容</span><br><br><span class="hljs-comment">// getName = function()&#123;console.log(1)&#125; // 注意getName是全局的，是window.的</span><br><span class="hljs-title class_">Foo</span>().<span class="hljs-title function_">getName</span>() <span class="hljs-comment">//1 , 执行了Foo(),相当于执行了window.getName(),覆盖了第8行的内容</span><br><span class="hljs-title function_">getName</span>()       <span class="hljs-comment">//1</span><br><span class="hljs-keyword">new</span> <span class="hljs-title class_">Foo</span>().<span class="hljs-title function_">getName</span>()  <span class="hljs-comment">//3</span><br></code></pre></td></tr></table></figure><p>例4：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> length = <span class="hljs-number">10</span>;<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">fn</span>(<span class="hljs-params"></span>)&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">length</span> + <span class="hljs-number">1</span><br>&#125;<br><span class="hljs-keyword">var</span> obj = &#123;<br>    <span class="hljs-attr">length</span>:<span class="hljs-number">5</span>,<br>    <span class="hljs-attr">test1</span>:<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-title function_">fn</span>()<br>    &#125;<br>&#125;<br><br>obj.<span class="hljs-property">test2</span> = fn<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(obj.<span class="hljs-title function_">test1</span>())               <span class="hljs-comment">//11</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title function_">fn</span>()===obj.<span class="hljs-title function_">test2</span>())        <span class="hljs-comment">//false, fn()=11,obj.test2()=6</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(obj.<span class="hljs-title function_">test1</span>()== obj.<span class="hljs-title function_">test2</span>()) <span class="hljs-comment">//false</span><br><br></code></pre></td></tr></table></figure><h2 id="JS数组去重"><a href="#JS数组去重" class="headerlink" title="JS数组去重"></a>JS数组去重</h2><h3 id="方式1：new-Set"><a href="#方式1：new-Set" class="headerlink" title="方式1：new Set()"></a>方式1：new Set()</h3><p>new Set(arr)最终返回的是一个对象，需要变成数组</p><p>转化数组方法1：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Array</span>.<span class="hljs-title function_">from</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Set</span>(arr)))<br></code></pre></td></tr></table></figure><p>​**Array.from()**可以把像数组的对象转化成数组</p><p>转化数组方法2：</p><p>​运用展开运算符把对象展开，再放进数组中</p><p><code>console.log( [...new Set(arr)] )</code></p><h3 id="方式2：自写indexOf"><a href="#方式2：自写indexOf" class="headerlink" title="方式2：自写indexOf"></a>方式2：自写indexOf</h3><p>遍历数组查找元素下标，等于-1表明新数组中没有，追加到新数组，不等于-1表明有相同元素了，不作操作，返回新数组</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> arr2 = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">unique</span>(<span class="hljs-params">arr</span>)&#123;<br>    <span class="hljs-keyword">var</span> brr = []<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>;i&lt;arr.<span class="hljs-property">length</span>;i++)&#123;<br>        <span class="hljs-keyword">if</span>(brr.<span class="hljs-title function_">indefOf</span>(arr[i])==-<span class="hljs-number">1</span>)&#123;<br>            brr.<span class="hljs-title function_">push</span>(arr[i])<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> brr<br>&#125;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title function_">unique</span>(arr2))<br></code></pre></td></tr></table></figure><h3 id="方法3：filter"><a href="#方法3：filter" class="headerlink" title="方法3：filter"></a>方法3：filter</h3><h3 id="方法4：排序，先sort-再去重，重点根据arr-i-arr-i-1"><a href="#方法4：排序，先sort-再去重，重点根据arr-i-arr-i-1" class="headerlink" title="方法4：排序，先sort(),再去重，重点根据arr[i]!&#x3D;&#x3D;arr[i-1]"></a>方法4：排序，先sort(),再去重，重点根据arr[i]!&#x3D;&#x3D;arr[i-1]</h3><h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><h3 id="闭包是什么"><a href="#闭包是什么" class="headerlink" title="闭包是什么"></a>闭包是什么</h3><blockquote><p>闭包是一个函数加上到创建函数的作用域的链接，闭包“关闭”了函数的自由变量</p></blockquote><h3 id="闭包可以解决的问题（优点）"><a href="#闭包可以解决的问题（优点）" class="headerlink" title="闭包可以解决的问题（优点）"></a>闭包可以解决的问题（优点）</h3><ul><li>内部函数可以访问到外部函数的局部变量</li><li>闭包可以解决的问题</li></ul><p>事件循环机制，同步代码执行完了才会执行异步代码，在for循环中加入点击事件，想让每次点击出现的当前循环的结果，用闭包关闭函数的自由变量，即让变量不被垃圾回收机制回收</p><h3 id="闭包的缺点"><a href="#闭包的缺点" class="headerlink" title="闭包的缺点"></a>闭包的缺点</h3><ul><li><p>变量会注入在内存中，会造成内存损耗问题</p><p>解决办法：把闭包的函数设置为null，清空闭包函数</p></li><li><p>低版本浏览器如ie，会发生内存泄漏问题</p></li></ul><h3 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h3><p>防抖，节流，函数嵌套函数避免全局污染</p><h3 id="会导致内存泄漏的因素"><a href="#会导致内存泄漏的因素" class="headerlink" title="会导致内存泄漏的因素"></a>会导致内存泄漏的因素</h3><p>一些未声明直接赋值的变量；一些未清空的定时器；一些引用元素没有被清除</p><h2 id="js判断变量是不是数组，有哪些方法"><a href="#js判断变量是不是数组，有哪些方法" class="headerlink" title="js判断变量是不是数组，有哪些方法"></a>js判断变量是不是数组，有哪些方法</h2><p> 很多场景都会用到，比如diff算法中，根据children是数组还是undefined进行不同操作</p><h3 id="方式1：Array-isArray-（必说）"><a href="#方式1：Array-isArray-（必说）" class="headerlink" title="方式1：Array.isArray()   （必说）"></a>方式1：Array.isArray()   （必说）</h3><p>是，返回true，不是，返回false</p><p>严格判断</p><h3 id="方式2：instanceof-可说可不说"><a href="#方式2：instanceof-可说可不说" class="headerlink" title="方式2：instanceof  (可说可不说)"></a>方式2：instanceof  (可说可不说)</h3><p><code> arr instanceof Array</code> </p><p>不严谨，它会往原型上查找</p><h3 id="方式3：通过原型"><a href="#方式3：通过原型" class="headerlink" title="方式3：通过原型"></a>方式3：通过原型</h3><p> <code>Object.prototype.toString.call(arr).indexOf(&#39;Array&#39;)</code>返回值 <code>!==-1</code>,就是数组</p><h3 id="方式4：isPrototypeOf"><a href="#方式4：isPrototypeOf" class="headerlink" title="方式4：isPrototypeOf()"></a>方式4：isPrototypeOf()</h3><p><code>Array.prototype.isPrototypeOf(arr)</code>返回布尔值</p><h3 id="方式5：constructor"><a href="#方式5：constructor" class="headerlink" title="方式5：constructor"></a>方式5：constructor</h3><p><code>arr.constructor.toString().indexOf(&#39;Array&#39;)&gt;-1</code></p><h2 id="数组方法slice、splice"><a href="#数组方法slice、splice" class="headerlink" title="数组方法slice、splice"></a>数组方法slice、splice</h2><blockquote><p> slice截取，返回新数组 <code>slice（起始位置，截取个数）</code> 、<code>slice（起始位置）可以为负数</code></p></blockquote><blockquote><p> splice 可以插入，可以删除，可以替换，<strong>会改变原数组</strong></p><p>返回值是数组，返回的数组是删除的元素</p></blockquote><p><code> arr.splice(下标，删除个数，【可选：替补元素，可以是多个】)</code></p><h2 id="new都做了哪些操作"><a href="#new都做了哪些操作" class="headerlink" title="new都做了哪些操作"></a>new都做了哪些操作</h2><ul><li>创建了一个空对象   new Foo()</li><li>将空对象的原型指向构造函数的原型  即：Foo.prototype &#x3D;&#x3D; new Foo()._<em>proto</em>_</li><li>将空对象作为构造函数的上下文（改变this指向，指向的是new Foo()这个对象）</li><li>对构造函数有返回值的处理判断<ul><li>如果返回值是基本类型，则忽略这个返回值</li><li>如果返回值是引用类型，则返回这个对象</li></ul></li></ul><p>p77</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>JS</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>面试</tag>
+      
+      <tag>JS</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>4路由</title>
+    <link href="/2024/11/04/4%E8%B7%AF%E7%94%B1/"/>
+    <url>/2024/11/04/4%E8%B7%AF%E7%94%B1/</url>
+    
+    <content type="html"><![CDATA[<h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><h3 id="路由的模式与区别"><a href="#路由的模式与区别" class="headerlink" title="路由的模式与区别"></a>路由的模式与区别</h3><h4 id="history"><a href="#history" class="headerlink" title="history"></a>history</h4><p>以&#x2F;作为url结尾的</p><h4 id="hash"><a href="#hash" class="headerlink" title="hash"></a>hash</h4><p>以#作为结尾的</p><p><strong>区别</strong></p><p>1.关于找不到页面的时候向服务器发送请求的问题</p><p>​history会向后端发送一次请求，需要配置相关404页面</p><p>​hash不会发请求</p><p>2.关于项目打包前端自测问题（dist文件夹下）</p><p>​history在本地服务器上无法正常访问，默认看不到内容</p><p>​hash可以正常访问到页面</p><p>3.表象不同：（&#x2F;和#）</p><h3 id="子路由和动态路由"><a href="#子路由和动态路由" class="headerlink" title="子路由和动态路由"></a>子路由和动态路由</h3><h3 id="路由传值"><a href="#路由传值" class="headerlink" title="路由传值"></a>路由传值</h3><h3 id="导航故障"><a href="#导航故障" class="headerlink" title="导航故障"></a>导航故障</h3><p>​场景：当前页跳转当前页</p><p>​同一个页面，有不同的路径参数，比如搜索页通过查询参数访问</p><p>解决方法：重写push方法，在最后追加catch方法来捕捉异常</p><h3 id="route和-router的区别"><a href="#route和-router的区别" class="headerlink" title="$route和$router的区别"></a>$route和$router的区别</h3><blockquote><p>$router 不仅包含当前路由，还包含整个路由的对象和方法</p></blockquote><blockquote><p>$route包含当前路由对象</p></blockquote><h3 id="导航守卫"><a href="#导航守卫" class="headerlink" title="导航守卫"></a>导航守卫</h3><h4 id="全局守卫"><a href="#全局守卫" class="headerlink" title="全局守卫"></a>全局守卫</h4><p>​beforeEach</p><p>​afterEach</p><h4 id="路由独享守卫"><a href="#路由独享守卫" class="headerlink" title="路由独享守卫"></a>路由独享守卫</h4><p>​beforeEnter </p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> routers = [<br>    &#123;<br>        <span class="hljs-attr">path</span>:<span class="hljs-string">&#x27;/&#x27;</span>,<br>        <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;name&#x27;</span>,<br>        <span class="hljs-attr">beforeEnter</span>: <span class="hljs-function">(<span class="hljs-params">to,<span class="hljs-keyword">from</span>,next</span>)=&gt;</span>&#123;<br>            <span class="hljs-keyword">if</span>(<span class="hljs-literal">true</span>)&#123;<br>                <span class="hljs-title function_">next</span>()<br>            &#125;<br>            <span class="hljs-title function_">next</span>(<span class="hljs-string">&#x27;/login&#x27;</span>);<br>        &#125;<br>    &#125;<br>]<br></code></pre></td></tr></table></figure><h4 id="组件内守卫"><a href="#组件内守卫" class="headerlink" title="组件内守卫"></a>组件内守卫</h4><p>​beforeRouterEnter    路由进入前</p><p>​beforeRouterUpdate路由更新前</p><p>​beforeRouterLeave路由离开前</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>vue</tag>
+      
+      <tag>router</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>10Vue源码</title>
+    <link href="/2024/11/03/10Vue%E6%BA%90%E7%A0%81/"/>
+    <url>/2024/11/03/10Vue%E6%BA%90%E7%A0%81/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Vue源码"><a href="#Vue源码" class="headerlink" title="Vue源码"></a>Vue源码</h1><h2 id="底层vue-js"><a href="#底层vue-js" class="headerlink" title="底层vue.js"></a>底层vue.js</h2><h3 id="创建vue对象"><a href="#创建vue对象" class="headerlink" title="创建vue对象"></a>创建vue对象</h3><p>本质是一个构造函数</p><h3 id="el-，-data原理"><a href="#el-，-data原理" class="headerlink" title="$el ，$data原理"></a>$el ，$data原理</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs js">calss <span class="hljs-title class_">Vue</span>&#123;<br>    <span class="hljs-title function_">constructor</span>(<span class="hljs-params">options</span>)&#123;<br>        <span class="hljs-comment">//options 就是绑定的实例对象</span><br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">$el</span> = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(options.<span class="hljs-property">el</span>);<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">data</span> = options.<span class="hljs-property">data</span><br>        <br>        <span class="hljs-comment">// 创建一个compile方法</span><br>        <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">compile</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">$el</span>);<br>    &#125;<br>    <span class="hljs-comment">// 数据绑定渲染</span><br>    <span class="hljs-title function_">compile</span>(<span class="hljs-params">ndoe</span>)&#123;<br>        node.<span class="hljs-property">childNodes</span>.<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params">item,index</span>)=&gt;</span>&#123;<br>            <span class="hljs-comment">//元素节点，递归调用本函数</span><br>            <span class="hljs-keyword">if</span>(item.<span class="hljs-property">nodeType</span> == <span class="hljs-number">1</span>)&#123;<br>                <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">compile</span>(item)<br>            &#125;<br>            <span class="hljs-comment">//这是文本节点，如果有&#123;&#123;&#125;&#125;就替换成数据</span><br>            <span class="hljs-keyword">if</span>(item.<span class="hljs-property">nodeType</span> == <span class="hljs-number">3</span>)&#123;<br>                <span class="hljs-comment">// 正则匹配&#123;&#123;&#125;&#125;</span><br>                <span class="hljs-keyword">let</span> reg = <span class="hljs-regexp">/\&#123;\&#123;(.*?)\&#125;\&#125;/g</span>;<br>                <span class="hljs-keyword">let</span> text = item.<span class="hljs-property">textContent</span>;<br>                <span class="hljs-comment">// 给节点赋值</span><br>                item.<span class="hljs-property">textContent</span> = text.<span class="hljs-title function_">replace</span>(reg,<span class="hljs-function">(<span class="hljs-params">match,vmKey</span>)=&gt;</span>&#123;<br>                    vmKey = vmKey.<span class="hljs-title function_">trim</span>();<br>                    reutrn <span class="hljs-variable language_">this</span>.<span class="hljs-property">$data</span>[vmKey];<br>                &#125;)<br>            &#125;<br>        &#125;)<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure><h3 id="生命周期源码"><a href="#生命周期源码" class="headerlink" title="生命周期源码"></a>生命周期源码</h3><p><img src="/2024/11/03/10Vue%E6%BA%90%E7%A0%81/1.png" alt="生命周期源码"></p><h3 id="v-model双向绑定原理"><a href="#v-model双向绑定原理" class="headerlink" title="v-model双向绑定原理"></a>v-model双向绑定原理</h3><p>通过<code>Object.definePropertry</code>劫持数据发生的改变，如果数据发生改变，在set中赋值，调用update更新节点内容<code>&#123;&#123;str&#125;&#125;</code></p><h2 id="diff算法"><a href="#diff算法" class="headerlink" title="diff算法"></a>diff算法</h2><p>功能：提升性能</p><p>虚拟dom&#x3D;&#x3D;&#x3D;&gt;其实是数据（把dom数据化）</p><p>主流两个diff算法：snabbdom，virtual-dom</p><h3 id="snabbdom"><a href="#snabbdom" class="headerlink" title="snabbdom"></a>snabbdom</h3><h4 id="搭建环境（webpack）"><a href="#搭建环境（webpack）" class="headerlink" title="搭建环境（webpack）"></a>搭建环境（webpack）</h4><h4 id="虚拟节点和真实节点"><a href="#虚拟节点和真实节点" class="headerlink" title="虚拟节点和真实节点"></a>虚拟节点和真实节点</h4><blockquote><p>虚拟节点：</p></blockquote><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js">&#123;<br>    <span class="hljs-attr">children</span>: <span class="hljs-literal">undefined</span><br><span class="hljs-attr">data</span>: &#123;&#125;<br><span class="hljs-attr">elm</span>: div<br><span class="hljs-attr">key</span>: <span class="hljs-literal">undefined</span><br><span class="hljs-attr">sel</span>: <span class="hljs-string">&quot;div&quot;</span> <span class="hljs-comment">//自己定义的标识</span><br><span class="hljs-attr">text</span>: <span class="hljs-string">&quot;Hello world&quot;</span><br>&#125;<br></code></pre></td></tr></table></figure><blockquote><p>真实节点：</p><p>&lt;h1&gt;Hello world&lt;h1&gt;</p></blockquote><h4 id="新老节点替换规则"><a href="#新老节点替换规则" class="headerlink" title="新老节点替换规则"></a>新老节点替换规则</h4><ul><li>如果新老节点不是同一个节点名称，那么就暴力的删除旧节点，创建插入新的节点</li><li>只能同级比较，不能跨层比较，如果跨层级，也是暴力操作</li><li><strong>如果要提升性能，一定要加入 :key唯一标识</strong>，在更改前后确认是否是同一节点</li></ul><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> vnode2 = <span class="hljs-title function_">h</span>(<br><span class="hljs-string">&#x27;&#x27;</span>,  <span class="hljs-comment">// 第一个参数，节点名称，如h1,div等</span><br>    &#123;&#125;,  <span class="hljs-comment">//第2个参数， 里面放key</span><br>    <span class="hljs-string">&#x27;&#x27;</span>  <span class="hljs-comment">// 第3个参数，要么是被替换的字符串，要么是数组</span><br>)<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>vue</tag>
+      
+      <tag>源码</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>vue代理&amp;路由</title>
+    <link href="/2024/11/03/vue%E4%BB%A3%E7%90%86-%E8%B7%AF%E7%94%B1/"/>
+    <url>/2024/11/03/vue%E4%BB%A3%E7%90%86-%E8%B7%AF%E7%94%B1/</url>
+    
+    <content type="html"><![CDATA[<h1 id="项目打包"><a href="#项目打包" class="headerlink" title="项目打包"></a>项目打包</h1><ul><li>代理</li><li>路由模式</li><li>跨域请求</li></ul><h2 id="vue路由"><a href="#vue路由" class="headerlink" title="vue路由"></a>vue路由</h2><p><strong>解决跨域问题</strong></p><p>在vue cli官网上找配置项：devServer</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js"> <span class="hljs-comment">// 在vue.config.js中添加下面配置项</span><br><br><span class="hljs-variable language_">module</span>.<span class="hljs-property">exprots</span> = &#123;<br>    <span class="hljs-attr">publicPath</span>:<span class="hljs-string">&#x27;./&#x27;</span>,<br>    <span class="hljs-attr">devServe</span>: &#123;<br>        <span class="hljs-attr">proxy</span>: <span class="hljs-string">&#x27;http://localhost:3000&#x27;</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure><p>代理在打包完后是不生效的,需要再进行一系列配置</p><h3 id="模式和环境变量"><a href="#模式和环境变量" class="headerlink" title="模式和环境变量"></a>模式和环境变量</h3><p>在项目根目录新建文件：</p><p>​开发环境：<code>.env.decelopment</code></p><p>​生产环境：<code>.env.production</code></p><h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><p>1.表现形式不同</p><p>2.跳转请求： history会携带参数发送请求，hash不会发送请求</p><p>3.打包后自测要使用hash，history会出现空白页</p><h3 id="关于SPA"><a href="#关于SPA" class="headerlink" title="关于SPA"></a>关于SPA</h3><p>spa：单页面应用</p><p>缺点： </p><blockquote><ol><li><p>seo优化不好</p></li><li><p>性能不好</p></li></ol></blockquote><h3 id="vue路径传值"><a href="#vue路径传值" class="headerlink" title="vue路径传值"></a>vue路径传值</h3><h4 id="显式（在地址栏中显示）"><a href="#显式（在地址栏中显示）" class="headerlink" title="显式（在地址栏中显示）"></a>显式（在地址栏中显示）</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// http:xxxx/about?a=1</span><br><span class="hljs-comment">// 传</span><br><span class="hljs-variable language_">this</span>.<span class="hljs-property">$router</span>.<span class="hljs-title function_">push</span>(&#123;<br>    <span class="hljs-attr">path</span>:<span class="hljs-string">&#x27;/about&#x27;</span>,<br>    <span class="hljs-attr">query</span>:&#123;<br>        <span class="hljs-attr">a</span>:<span class="hljs-number">1</span><br>    &#125;<br>&#125;)<br><br><span class="hljs-comment">// 接收</span><br><span class="hljs-variable language_">this</span>.<span class="hljs-property">$route</span>.<span class="hljs-property">query</span>.<span class="hljs-property">a</span><br></code></pre></td></tr></table></figure><h4 id="隐式（在地址栏中不显示）"><a href="#隐式（在地址栏中不显示）" class="headerlink" title="隐式（在地址栏中不显示）"></a>隐式（在地址栏中不显示）</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 传</span><br><span class="hljs-variable language_">this</span>.<span class="hljs-property">$router</span>.<span class="hljs-title function_">push</span>(&#123;<br>    <span class="hljs-attr">naem</span>:<span class="hljs-string">&#x27;about&#x27;</span>,<br>    <span class="hljs-attr">params</span>:&#123;<br>        <span class="hljs-attr">a</span>:<span class="hljs-number">1</span><br>    &#125;<br>&#125;)<br><span class="hljs-comment">//接</span><br><span class="hljs-variable language_">this</span>.<span class="hljs-property">$route</span>.<span class="hljs-property">params</span>.<span class="hljs-property">a</span><br></code></pre></td></tr></table></figure><h3 id="路由导航守卫"><a href="#路由导航守卫" class="headerlink" title="路由导航守卫"></a>路由导航守卫</h3><h4 id="全局"><a href="#全局" class="headerlink" title="全局"></a>全局</h4><p> beforeEach，beforeResolve（to,from,next),afterEach(to,from)</p><h4 id="路由独享"><a href="#路由独享" class="headerlink" title="路由独享"></a>路由独享</h4><p>beforeEnter</p><h4 id="组件内"><a href="#组件内" class="headerlink" title="组件内"></a>组件内</h4><p>beforeRouterEnter,   beforeRouterUpdate  , beforeRouterLeave</p><h2 id="打包完成后出现空白页"><a href="#打包完成后出现空白页" class="headerlink" title="打包完成后出现空白页"></a>打包完成后出现空白页</h2><p>路由模式：history</p><p>打开vue cli官网查看配置</p><p>在vue.config.js中配置publicPath，默认是<code>/</code>,要修改成<code>./</code></p><p>配置后能出来部分内容，但是仍有大部分内容无法正常显示</p><p>更改路由模式为：hash模式，在dist下的页面就能正常访问了</p><blockquote><p>前端自己测试项目，用的<code>hash</code>模式</p><p>项目上线要求的是<code>history</code>模式 ： </p><blockquote><p>前端测试完成后改成history模式，然后代码交给后端，后端做路由重定向等配置</p></blockquote></blockquote>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>vue</tag>
+      
+      <tag>router</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>3Vuex</title>
+    <link href="/2024/11/03/3Vuex/"/>
+    <url>/2024/11/03/3Vuex/</url>
+    
+    <content type="html"><![CDATA[<h2 id="vuex"><a href="#vuex" class="headerlink" title="vuex"></a>vuex</h2><p><strong>vuex是单向数据流，意思是：组件可以拿到vuex的数据但是不能修改数据</strong></p><p>5大属性：</p><p>state：全局共享属性</p><p>​1.组件中通过this.$store.state.data访问</p><p>​2.引入mapState模块，在computed中导入：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> &#123;mapState&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vuex&#x27;</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>       <span class="hljs-attr">computed</span>:&#123;<br>           ...<span class="hljs-title function_">mapState</span>([<span class="hljs-string">&#x27;data&#x27;</span>])<br>       &#125;<br>&#125;<br></code></pre></td></tr></table></figure><figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs pf">&gt;两者都可以拿到State，但是this.<span class="hljs-variable">$store</span>.<span class="hljs-keyword">state</span>.xxx可以直接修改vuex中的数据<br>&gt;<br>&gt;而使用辅助函数则更安全，不能修改数据<br></code></pre></td></tr></table></figure><p>getters：针对State数据进行二次计算<br>getters：针对State数据进行二次计算<br>getters：针对State数据进行二次计算</p><p>​<strong>getters是不可以修改的</strong></p><p>mutations：存放同步方法的</p><p>actions：存放异步方法的，且用来提交mutations</p><p>modules：把vuex划分成多模块</p><h3 id="vuex的mutations和actions的区别"><a href="#vuex的mutations和actions的区别" class="headerlink" title="vuex的mutations和actions的区别"></a>vuex的mutations和actions的区别</h3><p>相同点：两者都是用来存放全局方法的，方法的返回值是拿不到的</p><p>不同点：</p><blockquote><p>mutations  —&gt;同步</p></blockquote><blockquote><p>actions   —》异步 ，返回值是一个Promise对象，可以执行相关异步操作</p></blockquote><p><strong>mutations是用来修改State的数据的，actions是用来提交mutations的</strong></p><h3 id="vuex的持久化存储"><a href="#vuex的持久化存储" class="headerlink" title="vuex的持久化存储"></a>vuex的持久化存储</h3><p>vuex本身不具有持久化存储功能，它只是状态存储仓库，存放State全局属性的地方</p><p><strong>实现持久化存储的方法</strong></p><h4 id="自己编写localstorage"><a href="#自己编写localstorage" class="headerlink" title="自己编写localstorage"></a>自己编写localstorage</h4><h4 id="使用vuex-persistedstate插件"><a href="#使用vuex-persistedstate插件" class="headerlink" title="使用vuex-persistedstate插件"></a>使用vuex-persistedstate插件</h4>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>vue</tag>
+      
+      <tag>面试</tag>
+      
+      <tag>vuex</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>2Vue组件通信</title>
+    <link href="/2024/11/03/2Vue%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/"/>
+    <url>/2024/11/03/2Vue%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/</url>
+    
+    <content type="html"><![CDATA[<h1 id="VUE2组件通信"><a href="#VUE2组件通信" class="headerlink" title="VUE2组件通信"></a>VUE2组件通信</h1><h2 id="关于组件"><a href="#关于组件" class="headerlink" title="关于组件"></a>关于组件</h2><h3 id="组件传值-通信-方式"><a href="#组件传值-通信-方式" class="headerlink" title="组件传值(通信)方式"></a>组件传值(通信)方式</h3><blockquote><p>父传后代</p><p>1.父组件引入子组件,绑定数据, :value&#x3D;’value’向下传值,子组件通过props接收。（缺点：无法直接传到孙子)</p><p><strong>子无法修改父中的数据</strong></p><p>2.子直接使用父的数据，this.$parent.data </p><p><strong>子可以直接修改父的数据</strong></p><p>祖传孙：</p><p><strong>3.provide、inject &#x3D;&#x3D;&#x3D;》依赖注入</strong></p><p>父组件可以直接向任意后代传值，不需要逐级传递</p></blockquote><blockquote><p>后代传父</p><p>1.子传父</p><p> 子组件自定义事件，this.$emit</p><p>2.父直接用子数据</p><p>this.children[0].data</p><p>this.$refs.child.data</p></blockquote><blockquote><p>兄弟互传:bus中转（一般在utils下新建bus.js）</p></blockquote><h3 id="如何直接找到根组件"><a href="#如何直接找到根组件" class="headerlink" title="如何直接找到根组件"></a>如何直接找到根组件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-variable language_">this</span>.<span class="hljs-property">$root</span><br></code></pre></td></tr></table></figure><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-variable language_">this</span>.<span class="hljs-property">$parent</span> 找到当前组件的父组件，找不到就返回自身<br></code></pre></td></tr></table></figure><p>在业务上用的不多，一般在插件里的底层用的多</p><h3 id="slot插槽"><a href="#slot插槽" class="headerlink" title="slot插槽"></a>slot插槽</h3><h4 id="匿名插槽"><a href="#匿名插槽" class="headerlink" title="匿名插槽"></a>匿名插槽</h4><h4 id="具名插槽"><a href="#具名插槽" class="headerlink" title="具名插槽"></a>具名插槽</h4><h4 id="作用域插槽"><a href="#作用域插槽" class="headerlink" title="作用域插槽"></a>作用域插槽</h4><h3 id="如何封装组件"><a href="#如何封装组件" class="headerlink" title="如何封装组件"></a>如何封装组件</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">组件一定要难一点，涉及知识点：slot，组件通信。。。<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>vue</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>vue</tag>
+      
+      <tag>vue2</tag>
+      
+      <tag>面试</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>9-vue2</title>
+    <link href="/2024/11/02/9-vue2/"/>
+    <url>/2024/11/02/9-vue2/</url>
+    
+    <content type="html"><![CDATA[<h1 id="vue2"><a href="#vue2" class="headerlink" title="vue2"></a>vue2</h1><h2 id="什么是渐进式框架"><a href="#什么是渐进式框架" class="headerlink" title="什么是渐进式框架"></a>什么是渐进式框架</h2><p>vue.js 是一个核心库，在做项目时，会根据需要逐步加入router，vuex，element、等使得项目变得越来越大就是渐进式</p><h2 id="sass-样式穿透"><a href="#sass-样式穿透" class="headerlink" title="sass 样式穿透"></a>sass 样式穿透</h2><p><img src="/2024/11/02/9-vue2/sass.png"></p><h2 id="props-和data的优先级"><a href="#props-和data的优先级" class="headerlink" title="props 和data的优先级"></a>props 和data的优先级</h2><p>props &#x3D;&#x3D;&gt; methods &#x3D;&#x3D;&gt; data &#x3D;&#x3D;&gt; computed &#x3D;&#x3D;&gt; watch</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>vue</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>vue</tag>
+      
+      <tag>vue2</tag>
+      
+      <tag>面试</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>v2和v3的区别</title>
+    <link href="/2024/11/02/v2%E5%92%8Cv3%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <url>/2024/11/02/v2%E5%92%8Cv3%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    
+    <content type="html"><![CDATA[<h2 id="vue2和vue3的区别"><a href="#vue2和vue3的区别" class="headerlink" title="vue2和vue3的区别"></a>vue2和vue3的区别</h2><h3 id="v2和v3双向绑定的方法不同"><a href="#v2和v3双向绑定的方法不同" class="headerlink" title="v2和v3双向绑定的方法不同"></a>v2和v3双向绑定的方法不同</h3><blockquote><p>vue2: Object.defineProperty()</p><p>（添加值底层走的是for循环）</p><p>​        后添加的属性是劫持不到的</p><p>vue3：new Proxy（）</p><p>​即使是后添加的也可以劫持到</p><p>（底层没有用循环，是直接设置的）</p></blockquote><h3 id="关于-set"><a href="#关于-set" class="headerlink" title="关于$set"></a>关于$set</h3><p> vue3中不存在数据更新了视图没更新的问题，所以vue2中的$set就没有用了</p><h3 id="关于写法"><a href="#关于写法" class="headerlink" title="关于写法"></a>关于写法</h3><p>vue2 是选项式api ，VUE3是组合式api，vue3向下兼容，也可以使用选项式api或setup语法糖形式</p><h3 id="v-if-和v-for优先级不同"><a href="#v-if-和v-for优先级不同" class="headerlink" title="v-if 和v-for优先级不同"></a>v-if 和v-for优先级不同</h3><p>v2   for＞if</p><p>v3 ＞for</p><h3 id="ref-和-children-也不同"><a href="#ref-和-children-也不同" class="headerlink" title="$ref 和$children 也不同"></a>$ref 和$children 也不同</h3><h2 id="vue3-hooks"><a href="#vue3-hooks" class="headerlink" title="vue3  hooks"></a>vue3  hooks</h2><p><strong>vue3用setup该如何组织代码</strong> </p><p>mixins (混入)&#x3D;&#x3D;&gt; 写了一些方法或属性，可以在全局或者某个组件中使用，没有template</p><p>说明：hooks（就是函数式），主要就是让功能模块细分，提升项目的维护性</p><p> 把项目中的一些功能代码抽离到hooks文件夹下 </p><h2 id="vue3特性"><a href="#vue3特性" class="headerlink" title="vue3特性"></a>vue3特性</h2><h3 id="vue3如果用setup写，如何获取类似vue2中的this"><a href="#vue3如果用setup写，如何获取类似vue2中的this" class="headerlink" title="vue3如果用setup写，如何获取类似vue2中的this"></a>vue3如果用setup写，如何获取类似vue2中的this</h3>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> &#123; getCurrentInstance &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vue&#x27;</span><br><span class="hljs-keyword">let</span> app = <span class="hljs-title function_">getCurrentInstance</span>()<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>( app.<span class="hljs-property">appContext</span>.<span class="hljs-property">app</span>.<span class="hljs-property">config</span>.<span class="hljs-property">globalProperties</span>.<span class="hljs-property">$loading</span> )<br></code></pre></td></tr></table></figure><h3 id="vue3-常用的api"><a href="#vue3-常用的api" class="headerlink" title="vue3 常用的api"></a>vue3 常用的api</h3><h4 id="createApp-》-创建一个应用实例"><a href="#createApp-》-创建一个应用实例" class="headerlink" title="createApp() &#x3D;&#x3D;》 创建一个应用实例"></a>createApp() &#x3D;&#x3D;》 创建一个应用实例</h4><p>说明：等于vue2的 new vue（）</p><p>使用场景：写插件</p><h4 id="provide-inject-》依赖注入"><a href="#provide-inject-》依赖注入" class="headerlink" title="provide&#x2F;inject &#x3D;&#x3D;》依赖注入"></a>provide&#x2F;inject &#x3D;&#x3D;》依赖注入</h4><p>说明：其实就是传值</p><p>使用场景：某一个父组件传值到后代，层级过多传递麻烦会使用这种方式</p><p>缺点：不好维护，难以查询数据来源</p><h4 id="directive"><a href="#directive" class="headerlink" title="directive"></a>directive</h4><p>–自定义指令</p><p>– 后台管理系统中的按钮权限控制，（一个用户拥有某些权限，但是只能查看和修改，不能删除）</p><h4 id="mixin"><a href="#mixin" class="headerlink" title="mixin"></a>mixin</h4><p>– 1.全局混入 2.局部</p><p>– 可以添加生命周期，我在小程序的分享功能会用到</p><p>– 不好维护和查询数据源</p><h4 id="app-config-globalProperties"><a href="#app-config-globalProperties" class="headerlink" title="app.config.globalProperties"></a>app.config.globalProperties</h4><p>– 获取vue这个全局对象的属性和方法</p><p>–自己封装插件的时候需要把方法添加到对象中</p><h4 id="nextTick"><a href="#nextTick" class="headerlink" title="nextTick"></a>nextTick</h4><h4 id="computed"><a href="#computed" class="headerlink" title="computed"></a>computed</h4><h4 id="reactive、ref"><a href="#reactive、ref" class="headerlink" title="reactive、ref"></a>reactive、ref</h4><p>用来定义数据的，和vue2的data类似</p><h4 id="watch"><a href="#watch" class="headerlink" title="watch"></a>watch</h4><h4 id="markRow"><a href="#markRow" class="headerlink" title="markRow()"></a>markRow()</h4><p>不被new Proxy代理，其实就是静态的数据</p><h4 id="defineProps"><a href="#defineProps" class="headerlink" title="defineProps()"></a>defineProps()</h4><p>– 父组件传递的值，子组件使用的是setup的形式，需要用defineProps接收</p><h4 id="defineEmits（）"><a href="#defineEmits（）" class="headerlink" title="defineEmits（）"></a>defineEmits（）</h4><h4 id="slot"><a href="#slot" class="headerlink" title="slot"></a>slot</h4><h3 id="vue3的响应式数据类型"><a href="#vue3的响应式数据类型" class="headerlink" title="vue3的响应式数据类型"></a>vue3的响应式数据类型</h3><p> ref (基本类型)、reactive（复杂类型）、toRef（解构某个值）、toRefs（解构多个值）</p><h3 id="teleport组件（传送门）及其应用场景"><a href="#teleport组件（传送门）及其应用场景" class="headerlink" title="teleport组件（传送门）及其应用场景"></a>teleport组件（传送门）及其应用场景</h3><p>场景：弹出框</p><p>假如自己写弹出框，需要显示在页面居中位置，不受当前组件的限制，可以把盒子传送到body中</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>vue</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>vue</tag>
+      
+      <tag>面试</tag>
+      
+      <tag>vue3</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>vue6-8:自定义指令、绑定、原理</title>
+    <link href="/2024/11/02/vue6-8/"/>
+    <url>/2024/11/02/vue6-8/</url>
+    
+    <content type="html"><![CDATA[<h2 id="关于指令"><a href="#关于指令" class="headerlink" title="关于指令"></a>关于指令</h2><p>自定义指令</p><p>局部定义和全局定义</p><h2 id="vue单向绑定"><a href="#vue单向绑定" class="headerlink" title="vue单向绑定"></a>vue单向绑定</h2><p>v-bind,简写<code> :</code></p><h2 id="v-if和v-for优先级"><a href="#v-if和v-for优先级" class="headerlink" title="v-if和v-for优先级"></a>v-if和v-for优先级</h2><blockquote><p>vue2中：v-for &gt; v-if</p></blockquote><blockquote><p>vue3中：v-if &gt;v-for</p></blockquote><p>源码中有体现</p><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><h3 id="nextTick原理"><a href="#nextTick原理" class="headerlink" title="$nextTick原理"></a>$nextTick原理</h3><p>功能：获取更新后的dom</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js">$nextTick(callback)&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>().<span class="hljs-title function_">then</span>(<span class="hljs-function">()=&gt;</span>&#123;<br>        <span class="hljs-title function_">callback</span>();<br>    &#125;)<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>vue</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>vue</tag>
+      
+      <tag>面试</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>5.关于API</title>
+    <link href="/2024/10/31/5%E5%85%B3%E4%BA%8EAPI/"/>
+    <url>/2024/10/31/5%E5%85%B3%E4%BA%8EAPI/</url>
+    
+    <content type="html"><![CDATA[<h2 id="关于API"><a href="#关于API" class="headerlink" title="关于API"></a>关于API</h2><h3 id="set"><a href="#set" class="headerlink" title="$set"></a>$set</h3><p>  问法：你有没有遇到过数据更新了，但视图没有更新的情况</p><p>  this.$set(target,值,修改后的值)</p><p><img src="/2024/10/31/5%E5%85%B3%E4%BA%8EAPI/5.1.png"></p><h3 id="nextTick"><a href="#nextTick" class="headerlink" title="$nextTick"></a>$nextTick</h3><blockquote><p>$nextTick返回的参数[函数],是一个异步的。最后执行，用于获取更新后的dom</p></blockquote><p> 源码：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js">$nextTick( callback )&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>().<span class="hljs-title function_">then</span>(<span class="hljs-function">()=&gt;</span>&#123;<br>        <span class="hljs-title function_">callback</span>()<br>    &#125;)<br>&#125;<br></code></pre></td></tr></table></figure><h3 id="ref"><a href="#ref" class="headerlink" title="$ref"></a>$ref</h3><p><code>用来获取dom的</code></p><h3 id="el"><a href="#el" class="headerlink" title="$el"></a>$el</h3><p><code>获取当前dom的根节点 </code></p><h3 id="data"><a href="#data" class="headerlink" title="$data"></a>$data</h3><p><code>  获取当前组件的data数据</code></p><h3 id="children"><a href="#children" class="headerlink" title="$children"></a>$children</h3><p><code> 获取当前组件的所有子组件</code></p><h3 id="parent"><a href="#parent" class="headerlink" title="$parent"></a>$parent</h3><p><code> 获取当前组件的父组件，找不到就返回自身</code></p><h3 id="root"><a href="#root" class="headerlink" title="$root"></a>$root</h3><p><code> 找到根组件</code></p><h3 id="data定义数据"><a href="#data定义数据" class="headerlink" title="data定义数据**"></a>data定义数据**</h3><p> 数据定义在return内和return外的区别</p><blockquote><p>return外：单纯修改这个数据是不可修改的，因为没有被get、set</p><p>return内：是可以修改的</p></blockquote><h3 id="computed计算属性"><a href="#computed计算属性" class="headerlink" title="computed计算属性"></a>computed计算属性</h3><p>注意简写下不能修改值，要修改使用get，set完整写法</p><h3 id="watch"><a href="#watch" class="headerlink" title="watch"></a>watch</h3><p> 注意监听对象内的属性时要深度监听</p><h3 id="methods与computed的区别"><a href="#methods与computed的区别" class="headerlink" title="methods与computed的区别"></a>methods与computed的区别</h3><p>缓存，computed有缓存</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>vue</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>vue</tag>
+      
+      <tag>面试</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>vue组件的生命周期</title>
+    <link href="/2024/10/30/1vue%E7%BB%84%E4%BB%B6%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"/>
+    <url>/2024/10/30/1vue%E7%BB%84%E4%BB%B6%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</url>
+    
+    <content type="html"><![CDATA[<h1 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h1><h2 id="vue生命周期"><a href="#vue生命周期" class="headerlink" title="vue生命周期"></a>vue生命周期</h2><h3 id="生命周期有哪些："><a href="#生命周期有哪些：" class="headerlink" title="生命周期有哪些："></a>生命周期有哪些：</h3><p>beforeCreate createdbeforeMount  mounted</p><p>beforeUpdate updated beforeDestroydestroyed</p><p>**使用缓存组件（keep-alive）时，会增加两个：activated  deactivated</p><h3 id="父子组件生命周期"><a href="#父子组件生命周期" class="headerlink" title="父子组件生命周期"></a>父子组件生命周期</h3><p>先执行父组件的前三个生命周期，再执行子组件的前4个，再执行父的第四个。</p><p>父组件把数据拿到了，能传给子组件进行处理渲染，最后再挂载渲染父组件的dom</p><h3 id="请求该写到哪里"><a href="#请求该写到哪里" class="headerlink" title="请求该写到哪里"></a>请求该写到哪里</h3><p>请求是异步代码，会先把同步代码执行完，再执行请求，写在created , mounted里效果一样</p><h4 id="如何在created中获取dom"><a href="#如何在created中获取dom" class="headerlink" title="如何在created中获取dom"></a>如何在created中获取dom</h4><blockquote><p>只要写异步代码就能正常获取了,或使用VUE系统内置的this.$nextTick</p><p>1.异步：请求，setTimeOut,Promise.xxx( )</p><p>2.this.$nextTick(res&#x3D;&gt;{})</p></blockquote><h4 id="为什么发送请求一搬不在beforeCreate里"><a href="#为什么发送请求一搬不在beforeCreate里" class="headerlink" title="为什么发送请求一搬不在beforeCreate里"></a>为什么发送请求一搬不在beforeCreate里</h4><blockquote><p>原因：如果请求是在methods中封装好的，在beforeCreate调用的时候，beforeCreate阶段是拿不到methods中的方法的（会报错）</p></blockquote><h4 id="beforeCreate与created区别"><a href="#beforeCreate与created区别" class="headerlink" title="beforeCreate与created区别"></a>beforeCreate与created区别</h4><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs txt">beforeCreate 是没有$data,没有￥el的，也拿不到methods方法的<br>created有$data, 有methods方法<br></code></pre></td></tr></table></figure><h4 id="created与mounted区别"><a href="#created与mounted区别" class="headerlink" title="created与mounted区别"></a>created与mounted区别</h4><p>一般来说都可以，但是当存在父子组件嵌套时，要根据项目需求选择，注意父子组件生命周期的执行顺序，父组件的mounted最后执行</p><h3 id="回答模板"><a href="#回答模板" class="headerlink" title="回答模板"></a>回答模板</h3><p>发送请求在created还是mounted</p><blockquote><p>这个问题要看具体的项目和业务情况了，因为组件的加载顺序是：父组件引入子组件，那么先执行父的前3生命周期，再执行子的4个生命周期，如果业务需求是父组件引入子组件，并且优先加载子组件的数据，那么在父组件中当前的请求要放在mounted中，如果当前组件没有依赖关系，那么放在哪个生命生命周期中请求都是可以的。</p></blockquote><h3 id="加入keep-alive（缓存组件）会执行哪些生命周期"><a href="#加入keep-alive（缓存组件）会执行哪些生命周期" class="headerlink" title="加入keep-alive（缓存组件）会执行哪些生命周期"></a>加入keep-alive（缓存组件）会执行哪些生命周期</h3><p>使用了keep组件，会额外增加两个生命周期：</p><p>activated (进入组件时)</p><p>deactivated（离开组件，组件被销毁时）</p><blockquote><p>第二次或第n次进入组件，会执行哪些生命周期：</p><p>如果使用了keep-alive组件，只会执行activated一个生命周期。</p><p>如果没有使用keep-alive，会执行前四个</p></blockquote><h3 id="在什么情况下用过哪些生命周期，说一说生命周期的使用场景"><a href="#在什么情况下用过哪些生命周期，说一说生命周期的使用场景" class="headerlink" title="在什么情况下用过哪些生命周期，说一说生命周期的使用场景"></a>在什么情况下用过哪些生命周期，说一说生命周期的使用场景</h3><h4 id="created："><a href="#created：" class="headerlink" title="created："></a>created：</h4><p>​单组件请求</p><h4 id="mounted："><a href="#mounted：" class="headerlink" title="mounted："></a>mounted：</h4><p>​同步获取dom,</p><p>​有父子组件,子组件优先发起请求</p><h4 id="activated："><a href="#activated：" class="headerlink" title="activated："></a>activated：</h4><p>​判断两次进入组件时携带的id是否相同来做出相应处理</p><h4 id="destoryed："><a href="#destoryed：" class="headerlink" title="destoryed："></a>destoryed：</h4><p>​记录视频播放进度,使用户下次进入时仍能接着播放</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>vue</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>vue</tag>
+      
+      <tag>面试</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>
