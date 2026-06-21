@@ -1,0 +1,28 @@
+/* 文章正文标题自动编号 - 从二级标题开始计数 */
+.markdown-body {
+  counter-reset: h2;
+}
+
+.markdown-body > h2::before {
+  content: counter(h2) ". " !important;
+  counter-increment: h2 !important;
+  display: inline !important;
+  margin-top: 0 !important;
+  height: auto !important;
+  width: auto !important;
+  visibility: visible !important;
+}
+
+.markdown-body > h3::before {
+  content: counter(h2) "." counter(h3) " " !important;
+  counter-increment: h3 !important;
+  display: inline !important;
+  margin-top: 0 !important;
+  height: auto !important;
+  width: auto !important;
+  visibility: visible !important;
+}
+
+.markdown-body > h2 {
+  counter-reset: h3;
+}
