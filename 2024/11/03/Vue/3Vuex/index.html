@@ -19,22 +19,26 @@
   <meta name="author" content="Long">
   <meta name="keywords" content="">
   
-    <meta name="description" content="web项目从0-1开发流程一般原则：敏捷开发 0. 项目背景 项目流程规划产品画流程图，脑图，原型图，简单的ui图 需求评审会分析需求是否可执行，工时评估，交付日期 扑克估时 开发环节*ui设计环节​	后端先行，开发接口，制定逻辑等等。 ​	ui画设计图。 ​	前端框架搭建，出图后按图实施 测试​	大项目可能有ua环境（预生产环境）：测试环境会产生很多脏数据，有时候没有办法删除 上线+回归测试​">
+    <meta name="description" content="vuexvuex是单向数据流，意思是：组件可以拿到vuex的数据但是不能修改数据 5大属性： state：全局共享属性 ​	1.组件中通过this.$store.state.data访问 ​	2.引入mapState模块，在computed中导入： 123456import &#123;mapState&#125; from &#x27;vuex&#x27;export default &amp;#123">
 <meta property="og:type" content="article">
-<meta property="og:title" content="项目0-1开发流程">
-<meta property="og:url" content="http://example.com/2024/11/08/%E9%A1%B9%E7%9B%AE0-1%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/index.html">
+<meta property="og:title" content="3Vuex">
+<meta property="og:url" content="http://example.com/2024/11/03/Vue/3Vuex/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="web项目从0-1开发流程一般原则：敏捷开发 0. 项目背景 项目流程规划产品画流程图，脑图，原型图，简单的ui图 需求评审会分析需求是否可执行，工时评估，交付日期 扑克估时 开发环节*ui设计环节​	后端先行，开发接口，制定逻辑等等。 ​	ui画设计图。 ​	前端框架搭建，出图后按图实施 测试​	大项目可能有ua环境（预生产环境）：测试环境会产生很多脏数据，有时候没有办法删除 上线+回归测试​">
+<meta property="og:description" content="vuexvuex是单向数据流，意思是：组件可以拿到vuex的数据但是不能修改数据 5大属性： state：全局共享属性 ​	1.组件中通过this.$store.state.data访问 ​	2.引入mapState模块，在computed中导入： 123456import &#123;mapState&#125; from &#x27;vuex&#x27;export default &amp;#123">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-11-08T13:22:59.000Z">
-<meta property="article:modified_time" content="2024-11-10T12:18:33.736Z">
+<meta property="og:image" content="http://example.com/img/4.jpg">
+<meta property="article:published_time" content="2024-11-03T08:57:25.000Z">
+<meta property="article:modified_time" content="2024-11-03T09:02:38.878Z">
 <meta property="article:author" content="Long">
-<meta property="article:tag" content="项目从0开发">
+<meta property="article:tag" content="面试">
+<meta property="article:tag" content="vue">
+<meta property="article:tag" content="vuex">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/4.jpg">
   
   
   
-  <title>项目0-1开发流程 - Hexo</title>
+  <title>3Vuex - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -217,7 +221,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="项目0-1开发流程"></span>
+            <span id="subtitle" data-typed-text="3Vuex"></span>
           
         </div>
 
@@ -228,8 +232,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-11-08 21:22" pubdate>
-          2024年11月8日 晚上
+        <time datetime="2024-11-03 16:57" pubdate>
+          2024年11月3日 下午
         </time>
       </span>
     
@@ -240,7 +244,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          296 字
+          329 字
         
       </span>
     
@@ -310,28 +314,37 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">项目0-1开发流程</h1>
+            <h1 id="seo-header">3Vuex</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="web项目从0-1开发流程"><a href="#web项目从0-1开发流程" class="headerlink" title="web项目从0-1开发流程"></a>web项目从0-1开发流程</h1><p><strong>一般原则：敏捷开发</strong></p>
-<p><strong>0.</strong> 项目背景</p>
-<h2 id="项目流程规划"><a href="#项目流程规划" class="headerlink" title="项目流程规划"></a>项目流程规划</h2><p>产品画流程图，脑图，原型图，简单的ui图</p>
-<h2 id="需求评审会"><a href="#需求评审会" class="headerlink" title="需求评审会"></a>需求评审会</h2><p>分析需求是否可执行，工时评估，交付日期</p>
-<p><strong>扑克估时</strong></p>
-<h2 id="开发环节-ui设计环节"><a href="#开发环节-ui设计环节" class="headerlink" title="开发环节*ui设计环节"></a>开发环节*ui设计环节</h2><p>​	后端先行，开发接口，制定逻辑等等。</p>
-<p>​	ui画设计图。</p>
-<p>​	前端框架搭建，出图后按图实施</p>
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>​	大项目可能有ua环境（预生产环境）：测试环境会产生很多脏数据，有时候没有办法删除</p>
-<h2 id="上线-回归测试"><a href="#上线-回归测试" class="headerlink" title="上线+回归测试"></a>上线+回归测试</h2><p>​	部署：（原理：把打包后的文件复制到服务器上，然后用nginx代理到域名，展示给用户）</p>
-<p>​		手动部署：打开服务器，把文件复制过去</p>
-<p>​		自动部署：git提交代码，触发钩子（触发onshow、onload等周期），自动执行打包命令，打包好后自动复制到服务器上。</p>
-<p>​	自动比较安全，遇到问题会自动回滚，回到上个版本</p>
-<hr>
+                <h2 id="vuex"><a href="#vuex" class="headerlink" title="vuex"></a>vuex</h2><p><strong>vuex是单向数据流，意思是：组件可以拿到vuex的数据但是不能修改数据</strong></p>
+<p>5大属性：</p>
+<p>state：全局共享属性</p>
+<p>​	1.组件中通过this.$store.state.data访问</p>
+<p>​	2.引入mapState模块，在computed中导入：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> &#123;mapState&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vuex&#x27;</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>       <span class="hljs-attr">computed</span>:&#123;<br>           ...<span class="hljs-title function_">mapState</span>([<span class="hljs-string">&#x27;data&#x27;</span>])<br>       &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h1 id="前端要做的事"><a href="#前端要做的事" class="headerlink" title="前端要做的事"></a>前端要做的事</h1><p>​	交互流程的制定，技术的选型，组件抽离（发现重复的去封装），部署</p>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs pf">&gt;两者都可以拿到State，但是this.<span class="hljs-variable">$store</span>.<span class="hljs-keyword">state</span>.xxx可以直接修改vuex中的数据<br>&gt;<br>&gt;而使用辅助函数则更安全，不能修改数据<br></code></pre></td></tr></table></figure>
 
+<p>getters：针对State数据进行二次计算<br>getters：针对State数据进行二次计算<br>getters：针对State数据进行二次计算</p>
+<p>​	<strong>getters是不可以修改的</strong></p>
+<p>mutations：存放同步方法的</p>
+<p>actions：存放异步方法的，且用来提交mutations</p>
+<p>modules：把vuex划分成多模块</p>
+<h3 id="vuex的mutations和actions的区别"><a href="#vuex的mutations和actions的区别" class="headerlink" title="vuex的mutations和actions的区别"></a>vuex的mutations和actions的区别</h3><p>相同点：两者都是用来存放全局方法的，方法的返回值是拿不到的</p>
+<p>不同点：</p>
+<blockquote>
+<p>mutations  —&gt;同步</p>
+</blockquote>
+<blockquote>
+<p>actions   —》异步 ，返回值是一个Promise对象，可以执行相关异步操作</p>
+</blockquote>
+<p><strong>mutations是用来修改State的数据的，actions是用来提交mutations的</strong></p>
+<h3 id="vuex的持久化存储"><a href="#vuex的持久化存储" class="headerlink" title="vuex的持久化存储"></a>vuex的持久化存储</h3><p>vuex本身不具有持久化存储功能，它只是状态存储仓库，存放State全局属性的地方</p>
+<p><strong>实现持久化存储的方法</strong></p>
+<h4 id="自己编写localstorage"><a href="#自己编写localstorage" class="headerlink" title="自己编写localstorage"></a>自己编写localstorage</h4><h4 id="使用vuex-persistedstate插件"><a href="#使用vuex-persistedstate插件" class="headerlink" title="使用vuex-persistedstate插件"></a>使用vuex-persistedstate插件</h4>
                 
               </div>
             
@@ -339,32 +352,15 @@
             <div>
               <div class="post-metas my-3">
   
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E8%BD%AF%E5%B7%A5/" class="category-chain-item">软工</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
   
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E9%A1%B9%E7%9B%AE%E4%BB%8E0%E5%BC%80%E5%8F%91/" class="print-no-link">#项目从0开发</a>
+        <a href="/tags/%E9%9D%A2%E8%AF%95/" class="print-no-link">#面试</a>
+      
+        <a href="/tags/vue/" class="print-no-link">#vue</a>
+      
+        <a href="/tags/vuex/" class="print-no-link">#vuex</a>
       
     </div>
   
@@ -376,8 +372,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>项目0-1开发流程</div>
-      <div>http://example.com/2024/11/08/项目0-1开发流程/</div>
+      <div>3Vuex</div>
+      <div>http://example.com/2024/11/03/Vue/3Vuex/</div>
     </div>
     <div class="license-meta">
       
@@ -389,7 +385,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年11月8日</div>
+          <div>2024年11月3日</div>
         </div>
       
       
@@ -414,9 +410,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/11/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" title="响应状态码">
+                      <a href="/2024/11/03/Vue/vue%E4%BB%A3%E7%90%86-%E8%B7%AF%E7%94%B1/" title="vue代理&amp;路由">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">响应状态码</span>
+                        <span class="hidden-mobile">vue代理&amp;路由</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -424,8 +420,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/11/07/Vue/%E6%97%A0%E6%84%9F%E7%99%BB%E5%BD%95/" title="无感登录">
-                        <span class="hidden-mobile">无感登录</span>
+                      <a href="/2024/11/03/Vue/2Vue%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/" title="2Vue组件通信">
+                        <span class="hidden-mobile">2Vue组件通信</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

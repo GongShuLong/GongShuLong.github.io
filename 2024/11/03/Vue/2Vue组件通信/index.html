@@ -19,22 +19,26 @@
   <meta name="author" content="Long">
   <meta name="keywords" content="">
   
-    <meta name="description" content="web项目从0-1开发流程一般原则：敏捷开发 0. 项目背景 项目流程规划产品画流程图，脑图，原型图，简单的ui图 需求评审会分析需求是否可执行，工时评估，交付日期 扑克估时 开发环节*ui设计环节​	后端先行，开发接口，制定逻辑等等。 ​	ui画设计图。 ​	前端框架搭建，出图后按图实施 测试​	大项目可能有ua环境（预生产环境）：测试环境会产生很多脏数据，有时候没有办法删除 上线+回归测试​">
+    <meta name="description" content="VUE2组件通信关于组件组件传值(通信)方式 父传后代 1.父组件引入子组件,绑定数据, :value&#x3D;’value’向下传值,子组件通过props接收。（缺点：无法直接传到孙子) 子无法修改父中的数据 2.子直接使用父的数据，this.$parent.data  子可以直接修改父的数据 祖传孙： 3.provide、inject &#x3D;&#x3D;&#x3D;》依赖注入 父组件可">
 <meta property="og:type" content="article">
-<meta property="og:title" content="项目0-1开发流程">
-<meta property="og:url" content="http://example.com/2024/11/08/%E9%A1%B9%E7%9B%AE0-1%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/index.html">
+<meta property="og:title" content="2Vue组件通信">
+<meta property="og:url" content="http://example.com/2024/11/03/Vue/2Vue%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="web项目从0-1开发流程一般原则：敏捷开发 0. 项目背景 项目流程规划产品画流程图，脑图，原型图，简单的ui图 需求评审会分析需求是否可执行，工时评估，交付日期 扑克估时 开发环节*ui设计环节​	后端先行，开发接口，制定逻辑等等。 ​	ui画设计图。 ​	前端框架搭建，出图后按图实施 测试​	大项目可能有ua环境（预生产环境）：测试环境会产生很多脏数据，有时候没有办法删除 上线+回归测试​">
+<meta property="og:description" content="VUE2组件通信关于组件组件传值(通信)方式 父传后代 1.父组件引入子组件,绑定数据, :value&#x3D;’value’向下传值,子组件通过props接收。（缺点：无法直接传到孙子) 子无法修改父中的数据 2.子直接使用父的数据，this.$parent.data  子可以直接修改父的数据 祖传孙： 3.provide、inject &#x3D;&#x3D;&#x3D;》依赖注入 父组件可">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-11-08T13:22:59.000Z">
-<meta property="article:modified_time" content="2024-11-10T12:18:33.736Z">
+<meta property="og:image" content="http://example.com/img/3.jpg">
+<meta property="article:published_time" content="2024-11-03T08:53:00.000Z">
+<meta property="article:modified_time" content="2024-11-03T08:56:46.387Z">
 <meta property="article:author" content="Long">
-<meta property="article:tag" content="项目从0开发">
+<meta property="article:tag" content="面试">
+<meta property="article:tag" content="vue">
+<meta property="article:tag" content="vue2">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/3.jpg">
   
   
   
-  <title>项目0-1开发流程 - Hexo</title>
+  <title>2Vue组件通信 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -217,7 +221,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="项目0-1开发流程"></span>
+            <span id="subtitle" data-typed-text="2Vue组件通信"></span>
           
         </div>
 
@@ -228,8 +232,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-11-08 21:22" pubdate>
-          2024年11月8日 晚上
+        <time datetime="2024-11-03 16:53" pubdate>
+          2024年11月3日 下午
         </time>
       </span>
     
@@ -240,7 +244,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          296 字
+          264 字
         
       </span>
     
@@ -310,27 +314,39 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">项目0-1开发流程</h1>
+            <h1 id="seo-header">2Vue组件通信</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="web项目从0-1开发流程"><a href="#web项目从0-1开发流程" class="headerlink" title="web项目从0-1开发流程"></a>web项目从0-1开发流程</h1><p><strong>一般原则：敏捷开发</strong></p>
-<p><strong>0.</strong> 项目背景</p>
-<h2 id="项目流程规划"><a href="#项目流程规划" class="headerlink" title="项目流程规划"></a>项目流程规划</h2><p>产品画流程图，脑图，原型图，简单的ui图</p>
-<h2 id="需求评审会"><a href="#需求评审会" class="headerlink" title="需求评审会"></a>需求评审会</h2><p>分析需求是否可执行，工时评估，交付日期</p>
-<p><strong>扑克估时</strong></p>
-<h2 id="开发环节-ui设计环节"><a href="#开发环节-ui设计环节" class="headerlink" title="开发环节*ui设计环节"></a>开发环节*ui设计环节</h2><p>​	后端先行，开发接口，制定逻辑等等。</p>
-<p>​	ui画设计图。</p>
-<p>​	前端框架搭建，出图后按图实施</p>
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>​	大项目可能有ua环境（预生产环境）：测试环境会产生很多脏数据，有时候没有办法删除</p>
-<h2 id="上线-回归测试"><a href="#上线-回归测试" class="headerlink" title="上线+回归测试"></a>上线+回归测试</h2><p>​	部署：（原理：把打包后的文件复制到服务器上，然后用nginx代理到域名，展示给用户）</p>
-<p>​		手动部署：打开服务器，把文件复制过去</p>
-<p>​		自动部署：git提交代码，触发钩子（触发onshow、onload等周期），自动执行打包命令，打包好后自动复制到服务器上。</p>
-<p>​	自动比较安全，遇到问题会自动回滚，回到上个版本</p>
-<hr>
+                <h1 id="VUE2组件通信"><a href="#VUE2组件通信" class="headerlink" title="VUE2组件通信"></a>VUE2组件通信</h1><h2 id="关于组件"><a href="#关于组件" class="headerlink" title="关于组件"></a>关于组件</h2><h3 id="组件传值-通信-方式"><a href="#组件传值-通信-方式" class="headerlink" title="组件传值(通信)方式"></a>组件传值(通信)方式</h3><blockquote>
+<p>父传后代</p>
+<p>1.父组件引入子组件,绑定数据, :value&#x3D;’value’向下传值,子组件通过props接收。（缺点：无法直接传到孙子)</p>
+<p><strong>子无法修改父中的数据</strong></p>
+<p>2.子直接使用父的数据，this.$parent.data </p>
+<p><strong>子可以直接修改父的数据</strong></p>
+<p>祖传孙：</p>
+<p><strong>3.provide、inject &#x3D;&#x3D;&#x3D;》依赖注入</strong></p>
+<p>父组件可以直接向任意后代传值，不需要逐级传递</p>
+</blockquote>
+<blockquote>
+<p>后代传父</p>
+<p>1.子传父</p>
+<p> 子组件自定义事件，this.$emit</p>
+<p>2.父直接用子数据</p>
+<p>this.children[0].data</p>
+<p>this.$refs.child.data</p>
+</blockquote>
+<blockquote>
+<p>兄弟互传:bus中转（一般在utils下新建bus.js）</p>
+</blockquote>
+<h3 id="如何直接找到根组件"><a href="#如何直接找到根组件" class="headerlink" title="如何直接找到根组件"></a>如何直接找到根组件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-variable language_">this</span>.<span class="hljs-property">$root</span><br></code></pre></td></tr></table></figure>
 
-<h1 id="前端要做的事"><a href="#前端要做的事" class="headerlink" title="前端要做的事"></a>前端要做的事</h1><p>​	交互流程的制定，技术的选型，组件抽离（发现重复的去封装），部署</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-variable language_">this</span>.<span class="hljs-property">$parent</span> 找到当前组件的父组件，找不到就返回自身<br></code></pre></td></tr></table></figure>
+
+<p>在业务上用的不多，一般在插件里的底层用的多</p>
+<h3 id="slot插槽"><a href="#slot插槽" class="headerlink" title="slot插槽"></a>slot插槽</h3><h4 id="匿名插槽"><a href="#匿名插槽" class="headerlink" title="匿名插槽"></a>匿名插槽</h4><h4 id="具名插槽"><a href="#具名插槽" class="headerlink" title="具名插槽"></a>具名插槽</h4><h4 id="作用域插槽"><a href="#作用域插槽" class="headerlink" title="作用域插槽"></a>作用域插槽</h4><h3 id="如何封装组件"><a href="#如何封装组件" class="headerlink" title="如何封装组件"></a>如何封装组件</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">组件一定要难一点，涉及知识点：slot，组件通信。。。<br></code></pre></td></tr></table></figure>
+
 
                 
               </div>
@@ -349,7 +365,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E8%BD%AF%E5%B7%A5/" class="category-chain-item">软工</a>
+  <a href="/categories/vue/" class="category-chain-item">vue</a>
   
   
 
@@ -364,7 +380,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E9%A1%B9%E7%9B%AE%E4%BB%8E0%E5%BC%80%E5%8F%91/" class="print-no-link">#项目从0开发</a>
+        <a href="/tags/%E9%9D%A2%E8%AF%95/" class="print-no-link">#面试</a>
+      
+        <a href="/tags/vue/" class="print-no-link">#vue</a>
+      
+        <a href="/tags/vue2/" class="print-no-link">#vue2</a>
       
     </div>
   
@@ -376,8 +396,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>项目0-1开发流程</div>
-      <div>http://example.com/2024/11/08/项目0-1开发流程/</div>
+      <div>2Vue组件通信</div>
+      <div>http://example.com/2024/11/03/Vue/2Vue组件通信/</div>
     </div>
     <div class="license-meta">
       
@@ -389,7 +409,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年11月8日</div>
+          <div>2024年11月3日</div>
         </div>
       
       
@@ -414,9 +434,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/11/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" title="响应状态码">
+                      <a href="/2024/11/03/Vue/3Vuex/" title="3Vuex">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">响应状态码</span>
+                        <span class="hidden-mobile">3Vuex</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -424,8 +444,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/11/07/Vue/%E6%97%A0%E6%84%9F%E7%99%BB%E5%BD%95/" title="无感登录">
-                        <span class="hidden-mobile">无感登录</span>
+                      <a href="/2024/11/02/Vue/9-vue2/" title="9-vue2">
+                        <span class="hidden-mobile">9-vue2</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

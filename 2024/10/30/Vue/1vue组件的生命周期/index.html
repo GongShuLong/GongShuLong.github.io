@@ -19,22 +19,25 @@
   <meta name="author" content="Long">
   <meta name="keywords" content="">
   
-    <meta name="description" content="web项目从0-1开发流程一般原则：敏捷开发 0. 项目背景 项目流程规划产品画流程图，脑图，原型图，简单的ui图 需求评审会分析需求是否可执行，工时评估，交付日期 扑克估时 开发环节*ui设计环节​	后端先行，开发接口，制定逻辑等等。 ​	ui画设计图。 ​	前端框架搭建，出图后按图实施 测试​	大项目可能有ua环境（预生产环境）：测试环境会产生很多脏数据，有时候没有办法删除 上线+回归测试​">
+    <meta name="description" content="面试题vue生命周期生命周期有哪些：beforeCreate 	created		beforeMount  	mounted beforeUpdate 	updated	 	beforeDestroy	destroyed **使用缓存组件（keep-alive）时，会增加两个：activated  deactivated 父子组件生命周期先执行父组件的前三个生命周期，再执行子组件的前4个，再执行父">
 <meta property="og:type" content="article">
-<meta property="og:title" content="项目0-1开发流程">
-<meta property="og:url" content="http://example.com/2024/11/08/%E9%A1%B9%E7%9B%AE0-1%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/index.html">
+<meta property="og:title" content="vue组件的生命周期">
+<meta property="og:url" content="http://example.com/2024/10/30/Vue/1vue%E7%BB%84%E4%BB%B6%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="web项目从0-1开发流程一般原则：敏捷开发 0. 项目背景 项目流程规划产品画流程图，脑图，原型图，简单的ui图 需求评审会分析需求是否可执行，工时评估，交付日期 扑克估时 开发环节*ui设计环节​	后端先行，开发接口，制定逻辑等等。 ​	ui画设计图。 ​	前端框架搭建，出图后按图实施 测试​	大项目可能有ua环境（预生产环境）：测试环境会产生很多脏数据，有时候没有办法删除 上线+回归测试​">
+<meta property="og:description" content="面试题vue生命周期生命周期有哪些：beforeCreate 	created		beforeMount  	mounted beforeUpdate 	updated	 	beforeDestroy	destroyed **使用缓存组件（keep-alive）时，会增加两个：activated  deactivated 父子组件生命周期先执行父组件的前三个生命周期，再执行子组件的前4个，再执行父">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-11-08T13:22:59.000Z">
-<meta property="article:modified_time" content="2024-11-10T12:18:33.736Z">
+<meta property="og:image" content="http://example.com/img/bgc.png">
+<meta property="article:published_time" content="2024-10-30T06:27:09.000Z">
+<meta property="article:modified_time" content="2024-11-03T08:50:59.827Z">
 <meta property="article:author" content="Long">
-<meta property="article:tag" content="项目从0开发">
+<meta property="article:tag" content="面试">
+<meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/bgc.png">
   
   
   
-  <title>项目0-1开发流程 - Hexo</title>
+  <title>vue组件的生命周期 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -217,7 +220,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="项目0-1开发流程"></span>
+            <span id="subtitle" data-typed-text="vue组件的生命周期"></span>
           
         </div>
 
@@ -228,8 +231,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-11-08 21:22" pubdate>
-          2024年11月8日 晚上
+        <time datetime="2024-10-30 14:27" pubdate>
+          2024年10月30日 下午
         </time>
       </span>
     
@@ -240,7 +243,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          296 字
+          665 字
         
       </span>
     
@@ -251,7 +254,7 @@
         
         
         
-          3 分钟
+          6 分钟
         
       </span>
     
@@ -310,27 +313,45 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">项目0-1开发流程</h1>
+            <h1 id="seo-header">vue组件的生命周期</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="web项目从0-1开发流程"><a href="#web项目从0-1开发流程" class="headerlink" title="web项目从0-1开发流程"></a>web项目从0-1开发流程</h1><p><strong>一般原则：敏捷开发</strong></p>
-<p><strong>0.</strong> 项目背景</p>
-<h2 id="项目流程规划"><a href="#项目流程规划" class="headerlink" title="项目流程规划"></a>项目流程规划</h2><p>产品画流程图，脑图，原型图，简单的ui图</p>
-<h2 id="需求评审会"><a href="#需求评审会" class="headerlink" title="需求评审会"></a>需求评审会</h2><p>分析需求是否可执行，工时评估，交付日期</p>
-<p><strong>扑克估时</strong></p>
-<h2 id="开发环节-ui设计环节"><a href="#开发环节-ui设计环节" class="headerlink" title="开发环节*ui设计环节"></a>开发环节*ui设计环节</h2><p>​	后端先行，开发接口，制定逻辑等等。</p>
-<p>​	ui画设计图。</p>
-<p>​	前端框架搭建，出图后按图实施</p>
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>​	大项目可能有ua环境（预生产环境）：测试环境会产生很多脏数据，有时候没有办法删除</p>
-<h2 id="上线-回归测试"><a href="#上线-回归测试" class="headerlink" title="上线+回归测试"></a>上线+回归测试</h2><p>​	部署：（原理：把打包后的文件复制到服务器上，然后用nginx代理到域名，展示给用户）</p>
-<p>​		手动部署：打开服务器，把文件复制过去</p>
-<p>​		自动部署：git提交代码，触发钩子（触发onshow、onload等周期），自动执行打包命令，打包好后自动复制到服务器上。</p>
-<p>​	自动比较安全，遇到问题会自动回滚，回到上个版本</p>
-<hr>
+                <h1 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h1><h2 id="vue生命周期"><a href="#vue生命周期" class="headerlink" title="vue生命周期"></a>vue生命周期</h2><h3 id="生命周期有哪些："><a href="#生命周期有哪些：" class="headerlink" title="生命周期有哪些："></a>生命周期有哪些：</h3><p>beforeCreate 	created		beforeMount  	mounted</p>
+<p>beforeUpdate 	updated	 	beforeDestroy	destroyed</p>
+<p>**使用缓存组件（keep-alive）时，会增加两个：activated  deactivated</p>
+<h3 id="父子组件生命周期"><a href="#父子组件生命周期" class="headerlink" title="父子组件生命周期"></a>父子组件生命周期</h3><p>先执行父组件的前三个生命周期，再执行子组件的前4个，再执行父的第四个。</p>
+<p>父组件把数据拿到了，能传给子组件进行处理渲染，最后再挂载渲染父组件的dom</p>
+<h3 id="请求该写到哪里"><a href="#请求该写到哪里" class="headerlink" title="请求该写到哪里"></a>请求该写到哪里</h3><p>请求是异步代码，会先把同步代码执行完，再执行请求，写在created , mounted里效果一样</p>
+<h4 id="如何在created中获取dom"><a href="#如何在created中获取dom" class="headerlink" title="如何在created中获取dom"></a>如何在created中获取dom</h4><blockquote>
+<p>只要写异步代码就能正常获取了,或使用VUE系统内置的this.$nextTick</p>
+<p>1.异步：请求，setTimeOut,Promise.xxx( )</p>
+<p>2.this.$nextTick(res&#x3D;&gt;{})</p>
+</blockquote>
+<h4 id="为什么发送请求一搬不在beforeCreate里"><a href="#为什么发送请求一搬不在beforeCreate里" class="headerlink" title="为什么发送请求一搬不在beforeCreate里"></a>为什么发送请求一搬不在beforeCreate里</h4><blockquote>
+<p>原因：如果请求是在methods中封装好的，在beforeCreate调用的时候，beforeCreate阶段是拿不到methods中的方法的（会报错）</p>
+</blockquote>
+<h4 id="beforeCreate与created区别"><a href="#beforeCreate与created区别" class="headerlink" title="beforeCreate与created区别"></a>beforeCreate与created区别</h4><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs txt">beforeCreate 是没有$data,没有￥el的，也拿不到methods方法的<br>created有$data, 有methods方法<br></code></pre></td></tr></table></figure>
 
-<h1 id="前端要做的事"><a href="#前端要做的事" class="headerlink" title="前端要做的事"></a>前端要做的事</h1><p>​	交互流程的制定，技术的选型，组件抽离（发现重复的去封装），部署</p>
+<h4 id="created与mounted区别"><a href="#created与mounted区别" class="headerlink" title="created与mounted区别"></a>created与mounted区别</h4><p>一般来说都可以，但是当存在父子组件嵌套时，要根据项目需求选择，注意父子组件生命周期的执行顺序，父组件的mounted最后执行</p>
+<h3 id="回答模板"><a href="#回答模板" class="headerlink" title="回答模板"></a>回答模板</h3><p>发送请求在created还是mounted</p>
+<blockquote>
+<p>这个问题要看具体的项目和业务情况了，因为组件的加载顺序是：父组件引入子组件，那么先执行父的前3生命周期，再执行子的4个生命周期，如果业务需求是父组件引入子组件，并且优先加载子组件的数据，那么在父组件中当前的请求要放在mounted中，如果当前组件没有依赖关系，那么放在哪个生命生命周期中请求都是可以的。</p>
+</blockquote>
+<h3 id="加入keep-alive（缓存组件）会执行哪些生命周期"><a href="#加入keep-alive（缓存组件）会执行哪些生命周期" class="headerlink" title="加入keep-alive（缓存组件）会执行哪些生命周期"></a>加入keep-alive（缓存组件）会执行哪些生命周期</h3><p>使用了keep组件，会额外增加两个生命周期：</p>
+<p>activated (进入组件时)</p>
+<p>deactivated（离开组件，组件被销毁时）</p>
+<blockquote>
+<p>第二次或第n次进入组件，会执行哪些生命周期：</p>
+<p>如果使用了keep-alive组件，只会执行activated一个生命周期。</p>
+<p>如果没有使用keep-alive，会执行前四个</p>
+</blockquote>
+<h3 id="在什么情况下用过哪些生命周期，说一说生命周期的使用场景"><a href="#在什么情况下用过哪些生命周期，说一说生命周期的使用场景" class="headerlink" title="在什么情况下用过哪些生命周期，说一说生命周期的使用场景"></a>在什么情况下用过哪些生命周期，说一说生命周期的使用场景</h3><h4 id="created："><a href="#created：" class="headerlink" title="created："></a>created：</h4><p>​	单组件请求</p>
+<h4 id="mounted："><a href="#mounted：" class="headerlink" title="mounted："></a>mounted：</h4><p>​	同步获取dom,</p>
+<p>​	有父子组件,子组件优先发起请求</p>
+<h4 id="activated："><a href="#activated：" class="headerlink" title="activated："></a>activated：</h4><p>​	判断两次进入组件时携带的id是否相同来做出相应处理</p>
+<h4 id="destoryed："><a href="#destoryed：" class="headerlink" title="destoryed："></a>destoryed：</h4><p>​	记录视频播放进度,使用户下次进入时仍能接着播放</p>
 
                 
               </div>
@@ -349,7 +370,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E8%BD%AF%E5%B7%A5/" class="category-chain-item">软工</a>
+  <a href="/categories/vue/" class="category-chain-item">vue</a>
   
   
 
@@ -364,7 +385,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E9%A1%B9%E7%9B%AE%E4%BB%8E0%E5%BC%80%E5%8F%91/" class="print-no-link">#项目从0开发</a>
+        <a href="/tags/%E9%9D%A2%E8%AF%95/" class="print-no-link">#面试</a>
+      
+        <a href="/tags/vue/" class="print-no-link">#vue</a>
       
     </div>
   
@@ -376,8 +399,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>项目0-1开发流程</div>
-      <div>http://example.com/2024/11/08/项目0-1开发流程/</div>
+      <div>vue组件的生命周期</div>
+      <div>http://example.com/2024/10/30/Vue/1vue组件的生命周期/</div>
     </div>
     <div class="license-meta">
       
@@ -389,7 +412,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年11月8日</div>
+          <div>2024年10月30日</div>
         </div>
       
       
@@ -414,21 +437,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/11/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" title="响应状态码">
+                      <a href="/2024/10/31/Vue/5%E5%85%B3%E4%BA%8EAPI/" title="5.关于API">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">响应状态码</span>
+                        <span class="hidden-mobile">5.关于API</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
-                    
-                      <a href="/2024/11/07/Vue/%E6%97%A0%E6%84%9F%E7%99%BB%E5%BD%95/" title="无感登录">
-                        <span class="hidden-mobile">无感登录</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
                     
                   </article>
                 </div>

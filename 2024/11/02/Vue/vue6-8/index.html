@@ -19,22 +19,25 @@
   <meta name="author" content="Long">
   <meta name="keywords" content="">
   
-    <meta name="description" content="web项目从0-1开发流程一般原则：敏捷开发 0. 项目背景 项目流程规划产品画流程图，脑图，原型图，简单的ui图 需求评审会分析需求是否可执行，工时评估，交付日期 扑克估时 开发环节*ui设计环节​	后端先行，开发接口，制定逻辑等等。 ​	ui画设计图。 ​	前端框架搭建，出图后按图实施 测试​	大项目可能有ua环境（预生产环境）：测试环境会产生很多脏数据，有时候没有办法删除 上线+回归测试​">
+    <meta name="description" content="关于指令自定义指令 局部定义和全局定义 vue单向绑定v-bind,简写 : v-if和v-for优先级 vue2中：v-for &gt; v-if   vue3中：v-if &gt;v-for  源码中有体现 原理$nextTick原理功能：获取更新后的dom 12345$nextTick(callback)&#123;    return Promise.resolve().then(()&#x3D;&amp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="项目0-1开发流程">
-<meta property="og:url" content="http://example.com/2024/11/08/%E9%A1%B9%E7%9B%AE0-1%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/index.html">
+<meta property="og:title" content="vue6-8:自定义指令、绑定、原理">
+<meta property="og:url" content="http://example.com/2024/11/02/Vue/vue6-8/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="web项目从0-1开发流程一般原则：敏捷开发 0. 项目背景 项目流程规划产品画流程图，脑图，原型图，简单的ui图 需求评审会分析需求是否可执行，工时评估，交付日期 扑克估时 开发环节*ui设计环节​	后端先行，开发接口，制定逻辑等等。 ​	ui画设计图。 ​	前端框架搭建，出图后按图实施 测试​	大项目可能有ua环境（预生产环境）：测试环境会产生很多脏数据，有时候没有办法删除 上线+回归测试​">
+<meta property="og:description" content="关于指令自定义指令 局部定义和全局定义 vue单向绑定v-bind,简写 : v-if和v-for优先级 vue2中：v-for &gt; v-if   vue3中：v-if &gt;v-for  源码中有体现 原理$nextTick原理功能：获取更新后的dom 12345$nextTick(callback)&#123;    return Promise.resolve().then(()&#x3D;&amp;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-11-08T13:22:59.000Z">
-<meta property="article:modified_time" content="2024-11-10T12:18:33.736Z">
+<meta property="og:image" content="http://example.com/img/2.jpg">
+<meta property="article:published_time" content="2024-11-02T06:58:48.000Z">
+<meta property="article:modified_time" content="2024-11-02T07:16:43.434Z">
 <meta property="article:author" content="Long">
-<meta property="article:tag" content="项目从0开发">
+<meta property="article:tag" content="面试">
+<meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/2.jpg">
   
   
   
-  <title>项目0-1开发流程 - Hexo</title>
+  <title>vue6-8:自定义指令、绑定、原理 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -217,7 +220,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="项目0-1开发流程"></span>
+            <span id="subtitle" data-typed-text="vue6-8:自定义指令、绑定、原理"></span>
           
         </div>
 
@@ -228,8 +231,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-11-08 21:22" pubdate>
-          2024年11月8日 晚上
+        <time datetime="2024-11-02 14:58" pubdate>
+          2024年11月2日 下午
         </time>
       </span>
     
@@ -240,7 +243,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          296 字
+          76 字
         
       </span>
     
@@ -251,7 +254,7 @@
         
         
         
-          3 分钟
+          1 分钟
         
       </span>
     
@@ -310,27 +313,26 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">项目0-1开发流程</h1>
+            <h1 id="seo-header">vue6-8:自定义指令、绑定、原理</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="web项目从0-1开发流程"><a href="#web项目从0-1开发流程" class="headerlink" title="web项目从0-1开发流程"></a>web项目从0-1开发流程</h1><p><strong>一般原则：敏捷开发</strong></p>
-<p><strong>0.</strong> 项目背景</p>
-<h2 id="项目流程规划"><a href="#项目流程规划" class="headerlink" title="项目流程规划"></a>项目流程规划</h2><p>产品画流程图，脑图，原型图，简单的ui图</p>
-<h2 id="需求评审会"><a href="#需求评审会" class="headerlink" title="需求评审会"></a>需求评审会</h2><p>分析需求是否可执行，工时评估，交付日期</p>
-<p><strong>扑克估时</strong></p>
-<h2 id="开发环节-ui设计环节"><a href="#开发环节-ui设计环节" class="headerlink" title="开发环节*ui设计环节"></a>开发环节*ui设计环节</h2><p>​	后端先行，开发接口，制定逻辑等等。</p>
-<p>​	ui画设计图。</p>
-<p>​	前端框架搭建，出图后按图实施</p>
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>​	大项目可能有ua环境（预生产环境）：测试环境会产生很多脏数据，有时候没有办法删除</p>
-<h2 id="上线-回归测试"><a href="#上线-回归测试" class="headerlink" title="上线+回归测试"></a>上线+回归测试</h2><p>​	部署：（原理：把打包后的文件复制到服务器上，然后用nginx代理到域名，展示给用户）</p>
-<p>​		手动部署：打开服务器，把文件复制过去</p>
-<p>​		自动部署：git提交代码，触发钩子（触发onshow、onload等周期），自动执行打包命令，打包好后自动复制到服务器上。</p>
-<p>​	自动比较安全，遇到问题会自动回滚，回到上个版本</p>
-<hr>
+                <h2 id="关于指令"><a href="#关于指令" class="headerlink" title="关于指令"></a>关于指令</h2><p>自定义指令</p>
+<p>局部定义和全局定义</p>
+<h2 id="vue单向绑定"><a href="#vue单向绑定" class="headerlink" title="vue单向绑定"></a>vue单向绑定</h2><p>v-bind,简写<code> :</code></p>
+<h2 id="v-if和v-for优先级"><a href="#v-if和v-for优先级" class="headerlink" title="v-if和v-for优先级"></a>v-if和v-for优先级</h2><blockquote>
+<p>vue2中：v-for &gt; v-if</p>
+</blockquote>
+<blockquote>
+<p>vue3中：v-if &gt;v-for</p>
+</blockquote>
+<p>源码中有体现</p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><h3 id="nextTick原理"><a href="#nextTick原理" class="headerlink" title="$nextTick原理"></a>$nextTick原理</h3><p>功能：获取更新后的dom</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js">$nextTick(callback)&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>().<span class="hljs-title function_">then</span>(<span class="hljs-function">()=&gt;</span>&#123;<br>        <span class="hljs-title function_">callback</span>();<br>    &#125;)<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h1 id="前端要做的事"><a href="#前端要做的事" class="headerlink" title="前端要做的事"></a>前端要做的事</h1><p>​	交互流程的制定，技术的选型，组件抽离（发现重复的去封装），部署</p>
+
+
 
                 
               </div>
@@ -349,7 +351,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E8%BD%AF%E5%B7%A5/" class="category-chain-item">软工</a>
+  <a href="/categories/vue/" class="category-chain-item">vue</a>
   
   
 
@@ -364,7 +366,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E9%A1%B9%E7%9B%AE%E4%BB%8E0%E5%BC%80%E5%8F%91/" class="print-no-link">#项目从0开发</a>
+        <a href="/tags/%E9%9D%A2%E8%AF%95/" class="print-no-link">#面试</a>
+      
+        <a href="/tags/vue/" class="print-no-link">#vue</a>
       
     </div>
   
@@ -376,8 +380,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>项目0-1开发流程</div>
-      <div>http://example.com/2024/11/08/项目0-1开发流程/</div>
+      <div>vue6-8:自定义指令、绑定、原理</div>
+      <div>http://example.com/2024/11/02/Vue/vue6-8/</div>
     </div>
     <div class="license-meta">
       
@@ -389,7 +393,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年11月8日</div>
+          <div>2024年11月2日</div>
         </div>
       
       
@@ -414,9 +418,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/11/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" title="响应状态码">
+                      <a href="/2024/11/02/Vue/v2%E5%92%8Cv3%E7%9A%84%E5%8C%BA%E5%88%AB/" title="v2和v3的区别">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">响应状态码</span>
+                        <span class="hidden-mobile">v2和v3的区别</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -424,8 +428,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/11/07/Vue/%E6%97%A0%E6%84%9F%E7%99%BB%E5%BD%95/" title="无感登录">
-                        <span class="hidden-mobile">无感登录</span>
+                      <a href="/2024/10/31/Vue/5%E5%85%B3%E4%BA%8EAPI/" title="5.关于API">
+                        <span class="hidden-mobile">5.关于API</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

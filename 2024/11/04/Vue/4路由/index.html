@@ -19,22 +19,25 @@
   <meta name="author" content="Long">
   <meta name="keywords" content="">
   
-    <meta name="description" content="web项目从0-1开发流程一般原则：敏捷开发 0. 项目背景 项目流程规划产品画流程图，脑图，原型图，简单的ui图 需求评审会分析需求是否可执行，工时评估，交付日期 扑克估时 开发环节*ui设计环节​	后端先行，开发接口，制定逻辑等等。 ​	ui画设计图。 ​	前端框架搭建，出图后按图实施 测试​	大项目可能有ua环境（预生产环境）：测试环境会产生很多脏数据，有时候没有办法删除 上线+回归测试​">
+    <meta name="description" content="路由路由的模式与区别history以&#x2F;作为url结尾的 hash以#作为结尾的 区别 1.关于找不到页面的时候向服务器发送请求的问题 ​	history会向后端发送一次请求，需要配置相关404页面 ​	hash不会发请求 2.关于项目打包前端自测问题（dist文件夹下） ​	history在本地服务器上无法正常访问，默认看不到内容 ​	hash可以正常访问到页面 3.表象不同：（&amp;#x2">
 <meta property="og:type" content="article">
-<meta property="og:title" content="项目0-1开发流程">
-<meta property="og:url" content="http://example.com/2024/11/08/%E9%A1%B9%E7%9B%AE0-1%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/index.html">
+<meta property="og:title" content="4路由">
+<meta property="og:url" content="http://example.com/2024/11/04/Vue/4%E8%B7%AF%E7%94%B1/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="web项目从0-1开发流程一般原则：敏捷开发 0. 项目背景 项目流程规划产品画流程图，脑图，原型图，简单的ui图 需求评审会分析需求是否可执行，工时评估，交付日期 扑克估时 开发环节*ui设计环节​	后端先行，开发接口，制定逻辑等等。 ​	ui画设计图。 ​	前端框架搭建，出图后按图实施 测试​	大项目可能有ua环境（预生产环境）：测试环境会产生很多脏数据，有时候没有办法删除 上线+回归测试​">
+<meta property="og:description" content="路由路由的模式与区别history以&#x2F;作为url结尾的 hash以#作为结尾的 区别 1.关于找不到页面的时候向服务器发送请求的问题 ​	history会向后端发送一次请求，需要配置相关404页面 ​	hash不会发请求 2.关于项目打包前端自测问题（dist文件夹下） ​	history在本地服务器上无法正常访问，默认看不到内容 ​	hash可以正常访问到页面 3.表象不同：（&amp;#x2">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-11-08T13:22:59.000Z">
-<meta property="article:modified_time" content="2024-11-10T12:18:33.736Z">
+<meta property="og:image" content="http://example.com/img/10.jpg">
+<meta property="article:published_time" content="2024-11-04T05:57:18.000Z">
+<meta property="article:modified_time" content="2024-11-04T05:58:38.029Z">
 <meta property="article:author" content="Long">
-<meta property="article:tag" content="项目从0开发">
+<meta property="article:tag" content="vue">
+<meta property="article:tag" content="router">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/10.jpg">
   
   
   
-  <title>项目0-1开发流程 - Hexo</title>
+  <title>4路由 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -217,7 +220,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="项目0-1开发流程"></span>
+            <span id="subtitle" data-typed-text="4路由"></span>
           
         </div>
 
@@ -228,8 +231,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-11-08 21:22" pubdate>
-          2024年11月8日 晚上
+        <time datetime="2024-11-04 13:57" pubdate>
+          2024年11月4日 下午
         </time>
       </span>
     
@@ -240,7 +243,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          296 字
+          305 字
         
       </span>
     
@@ -310,27 +313,40 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">项目0-1开发流程</h1>
+            <h1 id="seo-header">4路由</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="web项目从0-1开发流程"><a href="#web项目从0-1开发流程" class="headerlink" title="web项目从0-1开发流程"></a>web项目从0-1开发流程</h1><p><strong>一般原则：敏捷开发</strong></p>
-<p><strong>0.</strong> 项目背景</p>
-<h2 id="项目流程规划"><a href="#项目流程规划" class="headerlink" title="项目流程规划"></a>项目流程规划</h2><p>产品画流程图，脑图，原型图，简单的ui图</p>
-<h2 id="需求评审会"><a href="#需求评审会" class="headerlink" title="需求评审会"></a>需求评审会</h2><p>分析需求是否可执行，工时评估，交付日期</p>
-<p><strong>扑克估时</strong></p>
-<h2 id="开发环节-ui设计环节"><a href="#开发环节-ui设计环节" class="headerlink" title="开发环节*ui设计环节"></a>开发环节*ui设计环节</h2><p>​	后端先行，开发接口，制定逻辑等等。</p>
-<p>​	ui画设计图。</p>
-<p>​	前端框架搭建，出图后按图实施</p>
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>​	大项目可能有ua环境（预生产环境）：测试环境会产生很多脏数据，有时候没有办法删除</p>
-<h2 id="上线-回归测试"><a href="#上线-回归测试" class="headerlink" title="上线+回归测试"></a>上线+回归测试</h2><p>​	部署：（原理：把打包后的文件复制到服务器上，然后用nginx代理到域名，展示给用户）</p>
-<p>​		手动部署：打开服务器，把文件复制过去</p>
-<p>​		自动部署：git提交代码，触发钩子（触发onshow、onload等周期），自动执行打包命令，打包好后自动复制到服务器上。</p>
-<p>​	自动比较安全，遇到问题会自动回滚，回到上个版本</p>
-<hr>
+                <h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><h3 id="路由的模式与区别"><a href="#路由的模式与区别" class="headerlink" title="路由的模式与区别"></a>路由的模式与区别</h3><h4 id="history"><a href="#history" class="headerlink" title="history"></a>history</h4><p>以&#x2F;作为url结尾的</p>
+<h4 id="hash"><a href="#hash" class="headerlink" title="hash"></a>hash</h4><p>以#作为结尾的</p>
+<p><strong>区别</strong></p>
+<p>1.关于找不到页面的时候向服务器发送请求的问题</p>
+<p>​	history会向后端发送一次请求，需要配置相关404页面</p>
+<p>​	hash不会发请求</p>
+<p>2.关于项目打包前端自测问题（dist文件夹下）</p>
+<p>​	history在本地服务器上无法正常访问，默认看不到内容</p>
+<p>​	hash可以正常访问到页面</p>
+<p>3.表象不同：（&#x2F;和#）</p>
+<h3 id="子路由和动态路由"><a href="#子路由和动态路由" class="headerlink" title="子路由和动态路由"></a>子路由和动态路由</h3><h3 id="路由传值"><a href="#路由传值" class="headerlink" title="路由传值"></a>路由传值</h3><h3 id="导航故障"><a href="#导航故障" class="headerlink" title="导航故障"></a>导航故障</h3><p>​	场景：当前页跳转当前页</p>
+<p>​	同一个页面，有不同的路径参数，比如搜索页通过查询参数访问</p>
+<p>解决方法：重写push方法，在最后追加catch方法来捕捉异常</p>
+<h3 id="route和-router的区别"><a href="#route和-router的区别" class="headerlink" title="$route和$router的区别"></a>$route和$router的区别</h3><blockquote>
+<p>$router 不仅包含当前路由，还包含整个路由的对象和方法</p>
+</blockquote>
+<blockquote>
+<p>$route包含当前路由对象</p>
+</blockquote>
+<h3 id="导航守卫"><a href="#导航守卫" class="headerlink" title="导航守卫"></a>导航守卫</h3><h4 id="全局守卫"><a href="#全局守卫" class="headerlink" title="全局守卫"></a>全局守卫</h4><p>​	beforeEach</p>
+<p>​	afterEach</p>
+<h4 id="路由独享守卫"><a href="#路由独享守卫" class="headerlink" title="路由独享守卫"></a>路由独享守卫</h4><p>​	beforeEnter </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> routers = [<br>    &#123;<br>        <span class="hljs-attr">path</span>:<span class="hljs-string">&#x27;/&#x27;</span>,<br>        <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;name&#x27;</span>,<br>        <span class="hljs-attr">beforeEnter</span>: <span class="hljs-function">(<span class="hljs-params">to,<span class="hljs-keyword">from</span>,next</span>)=&gt;</span>&#123;<br>            <span class="hljs-keyword">if</span>(<span class="hljs-literal">true</span>)&#123;<br>                <span class="hljs-title function_">next</span>()<br>            &#125;<br>            <span class="hljs-title function_">next</span>(<span class="hljs-string">&#x27;/login&#x27;</span>);<br>        &#125;<br>    &#125;<br>]<br></code></pre></td></tr></table></figure>
 
-<h1 id="前端要做的事"><a href="#前端要做的事" class="headerlink" title="前端要做的事"></a>前端要做的事</h1><p>​	交互流程的制定，技术的选型，组件抽离（发现重复的去封装），部署</p>
+
+
+<h4 id="组件内守卫"><a href="#组件内守卫" class="headerlink" title="组件内守卫"></a>组件内守卫</h4><p>​	beforeRouterEnter    	路由进入前</p>
+<p>​	beforeRouterUpdate	路由更新前</p>
+<p>​	beforeRouterLeave		路由离开前</p>
 
                 
               </div>
@@ -339,32 +355,13 @@
             <div>
               <div class="post-metas my-3">
   
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E8%BD%AF%E5%B7%A5/" class="category-chain-item">软工</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
   
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E9%A1%B9%E7%9B%AE%E4%BB%8E0%E5%BC%80%E5%8F%91/" class="print-no-link">#项目从0开发</a>
+        <a href="/tags/vue/" class="print-no-link">#vue</a>
+      
+        <a href="/tags/router/" class="print-no-link">#router</a>
       
     </div>
   
@@ -376,8 +373,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>项目0-1开发流程</div>
-      <div>http://example.com/2024/11/08/项目0-1开发流程/</div>
+      <div>4路由</div>
+      <div>http://example.com/2024/11/04/Vue/4路由/</div>
     </div>
     <div class="license-meta">
       
@@ -389,7 +386,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年11月8日</div>
+          <div>2024年11月4日</div>
         </div>
       
       
@@ -414,9 +411,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/11/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" title="响应状态码">
+                      <a href="/2024/11/04/js%E9%9D%A2%E8%AF%95%E9%A2%98/" title="js面试题">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">响应状态码</span>
+                        <span class="hidden-mobile">js面试题</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -424,8 +421,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/11/07/Vue/%E6%97%A0%E6%84%9F%E7%99%BB%E5%BD%95/" title="无感登录">
-                        <span class="hidden-mobile">无感登录</span>
+                      <a href="/2024/11/03/Vue/10Vue%E6%BA%90%E7%A0%81/" title="10Vue源码">
+                        <span class="hidden-mobile">10Vue源码</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

@@ -19,22 +19,25 @@
   <meta name="author" content="Long">
   <meta name="keywords" content="">
   
-    <meta name="description" content="web项目从0-1开发流程一般原则：敏捷开发 0. 项目背景 项目流程规划产品画流程图，脑图，原型图，简单的ui图 需求评审会分析需求是否可执行，工时评估，交付日期 扑克估时 开发环节*ui设计环节​	后端先行，开发接口，制定逻辑等等。 ​	ui画设计图。 ​	前端框架搭建，出图后按图实施 测试​	大项目可能有ua环境（预生产环境）：测试环境会产生很多脏数据，有时候没有办法删除 上线+回归测试​">
+    <meta name="description" content="项目打包 代理 路由模式 跨域请求  vue路由解决跨域问题 在vue cli官网上找配置项：devServer 12345678 &#x2F;&#x2F; 在vue.config.js中添加下面配置项module.exprots &#x3D; &#123;    publicPath:&#x27;.&#x2F;&#x27;,    devServe: &#123;        proxy: &#x27;http:&#x2F;&#x2F;localhos">
 <meta property="og:type" content="article">
-<meta property="og:title" content="项目0-1开发流程">
-<meta property="og:url" content="http://example.com/2024/11/08/%E9%A1%B9%E7%9B%AE0-1%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/index.html">
+<meta property="og:title" content="vue代理&amp;路由">
+<meta property="og:url" content="http://example.com/2024/11/03/Vue/vue%E4%BB%A3%E7%90%86-%E8%B7%AF%E7%94%B1/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="web项目从0-1开发流程一般原则：敏捷开发 0. 项目背景 项目流程规划产品画流程图，脑图，原型图，简单的ui图 需求评审会分析需求是否可执行，工时评估，交付日期 扑克估时 开发环节*ui设计环节​	后端先行，开发接口，制定逻辑等等。 ​	ui画设计图。 ​	前端框架搭建，出图后按图实施 测试​	大项目可能有ua环境（预生产环境）：测试环境会产生很多脏数据，有时候没有办法删除 上线+回归测试​">
+<meta property="og:description" content="项目打包 代理 路由模式 跨域请求  vue路由解决跨域问题 在vue cli官网上找配置项：devServer 12345678 &#x2F;&#x2F; 在vue.config.js中添加下面配置项module.exprots &#x3D; &#123;    publicPath:&#x27;.&#x2F;&#x27;,    devServe: &#123;        proxy: &#x27;http:&#x2F;&#x2F;localhos">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-11-08T13:22:59.000Z">
-<meta property="article:modified_time" content="2024-11-10T12:18:33.736Z">
+<meta property="og:image" content="http://example.com/img/16.jpg">
+<meta property="article:published_time" content="2024-11-03T09:38:37.000Z">
+<meta property="article:modified_time" content="2024-11-03T12:06:39.266Z">
 <meta property="article:author" content="Long">
-<meta property="article:tag" content="项目从0开发">
+<meta property="article:tag" content="vue">
+<meta property="article:tag" content="router">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/16.jpg">
   
   
   
-  <title>项目0-1开发流程 - Hexo</title>
+  <title>vue代理&amp;路由 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -217,7 +220,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="项目0-1开发流程"></span>
+            <span id="subtitle" data-typed-text="vue代理&amp;路由"></span>
           
         </div>
 
@@ -228,8 +231,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-11-08 21:22" pubdate>
-          2024年11月8日 晚上
+        <time datetime="2024-11-03 17:38" pubdate>
+          2024年11月3日 下午
         </time>
       </span>
     
@@ -240,7 +243,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          296 字
+          408 字
         
       </span>
     
@@ -251,7 +254,7 @@
         
         
         
-          3 分钟
+          4 分钟
         
       </span>
     
@@ -310,27 +313,56 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">项目0-1开发流程</h1>
+            <h1 id="seo-header">vue代理&amp;路由</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="web项目从0-1开发流程"><a href="#web项目从0-1开发流程" class="headerlink" title="web项目从0-1开发流程"></a>web项目从0-1开发流程</h1><p><strong>一般原则：敏捷开发</strong></p>
-<p><strong>0.</strong> 项目背景</p>
-<h2 id="项目流程规划"><a href="#项目流程规划" class="headerlink" title="项目流程规划"></a>项目流程规划</h2><p>产品画流程图，脑图，原型图，简单的ui图</p>
-<h2 id="需求评审会"><a href="#需求评审会" class="headerlink" title="需求评审会"></a>需求评审会</h2><p>分析需求是否可执行，工时评估，交付日期</p>
-<p><strong>扑克估时</strong></p>
-<h2 id="开发环节-ui设计环节"><a href="#开发环节-ui设计环节" class="headerlink" title="开发环节*ui设计环节"></a>开发环节*ui设计环节</h2><p>​	后端先行，开发接口，制定逻辑等等。</p>
-<p>​	ui画设计图。</p>
-<p>​	前端框架搭建，出图后按图实施</p>
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>​	大项目可能有ua环境（预生产环境）：测试环境会产生很多脏数据，有时候没有办法删除</p>
-<h2 id="上线-回归测试"><a href="#上线-回归测试" class="headerlink" title="上线+回归测试"></a>上线+回归测试</h2><p>​	部署：（原理：把打包后的文件复制到服务器上，然后用nginx代理到域名，展示给用户）</p>
-<p>​		手动部署：打开服务器，把文件复制过去</p>
-<p>​		自动部署：git提交代码，触发钩子（触发onshow、onload等周期），自动执行打包命令，打包好后自动复制到服务器上。</p>
-<p>​	自动比较安全，遇到问题会自动回滚，回到上个版本</p>
-<hr>
+                <h1 id="项目打包"><a href="#项目打包" class="headerlink" title="项目打包"></a>项目打包</h1><ul>
+<li>代理</li>
+<li>路由模式</li>
+<li>跨域请求</li>
+</ul>
+<h2 id="vue路由"><a href="#vue路由" class="headerlink" title="vue路由"></a>vue路由</h2><p><strong>解决跨域问题</strong></p>
+<p>在vue cli官网上找配置项：devServer</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js"> <span class="hljs-comment">// 在vue.config.js中添加下面配置项</span><br><br><span class="hljs-variable language_">module</span>.<span class="hljs-property">exprots</span> = &#123;<br>    <span class="hljs-attr">publicPath</span>:<span class="hljs-string">&#x27;./&#x27;</span>,<br>    <span class="hljs-attr">devServe</span>: &#123;<br>        <span class="hljs-attr">proxy</span>: <span class="hljs-string">&#x27;http://localhost:3000&#x27;</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h1 id="前端要做的事"><a href="#前端要做的事" class="headerlink" title="前端要做的事"></a>前端要做的事</h1><p>​	交互流程的制定，技术的选型，组件抽离（发现重复的去封装），部署</p>
+<p>代理在打包完后是不生效的,需要再进行一系列配置</p>
+<h3 id="模式和环境变量"><a href="#模式和环境变量" class="headerlink" title="模式和环境变量"></a>模式和环境变量</h3><p>在项目根目录新建文件：</p>
+<p>​	开发环境：<code>.env.decelopment</code></p>
+<p>​	生产环境：<code>.env.production</code></p>
+<h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><p>1.表现形式不同</p>
+<p>2.跳转请求： history会携带参数发送请求，hash不会发送请求</p>
+<p>3.打包后自测要使用hash，history会出现空白页</p>
+<h3 id="关于SPA"><a href="#关于SPA" class="headerlink" title="关于SPA"></a>关于SPA</h3><p>spa：单页面应用</p>
+<p>缺点： </p>
+<blockquote>
+<ol>
+<li><p>seo优化不好</p>
+</li>
+<li><p>性能不好</p>
+</li>
+</ol>
+</blockquote>
+<h3 id="vue路径传值"><a href="#vue路径传值" class="headerlink" title="vue路径传值"></a>vue路径传值</h3><h4 id="显式（在地址栏中显示）"><a href="#显式（在地址栏中显示）" class="headerlink" title="显式（在地址栏中显示）"></a>显式（在地址栏中显示）</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// http:xxxx/about?a=1</span><br><span class="hljs-comment">// 传</span><br><span class="hljs-variable language_">this</span>.<span class="hljs-property">$router</span>.<span class="hljs-title function_">push</span>(&#123;<br>    <span class="hljs-attr">path</span>:<span class="hljs-string">&#x27;/about&#x27;</span>,<br>    <span class="hljs-attr">query</span>:&#123;<br>        <span class="hljs-attr">a</span>:<span class="hljs-number">1</span><br>    &#125;<br>&#125;)<br><br><span class="hljs-comment">// 接收</span><br><span class="hljs-variable language_">this</span>.<span class="hljs-property">$route</span>.<span class="hljs-property">query</span>.<span class="hljs-property">a</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="隐式（在地址栏中不显示）"><a href="#隐式（在地址栏中不显示）" class="headerlink" title="隐式（在地址栏中不显示）"></a>隐式（在地址栏中不显示）</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 传</span><br><span class="hljs-variable language_">this</span>.<span class="hljs-property">$router</span>.<span class="hljs-title function_">push</span>(&#123;<br>    <span class="hljs-attr">naem</span>:<span class="hljs-string">&#x27;about&#x27;</span>,<br>    <span class="hljs-attr">params</span>:&#123;<br>        <span class="hljs-attr">a</span>:<span class="hljs-number">1</span><br>    &#125;<br>&#125;)<br><span class="hljs-comment">//接</span><br><span class="hljs-variable language_">this</span>.<span class="hljs-property">$route</span>.<span class="hljs-property">params</span>.<span class="hljs-property">a</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="路由导航守卫"><a href="#路由导航守卫" class="headerlink" title="路由导航守卫"></a>路由导航守卫</h3><h4 id="全局"><a href="#全局" class="headerlink" title="全局"></a>全局</h4><p> beforeEach，beforeResolve（to,from,next),afterEach(to,from)</p>
+<h4 id="路由独享"><a href="#路由独享" class="headerlink" title="路由独享"></a>路由独享</h4><p>beforeEnter</p>
+<h4 id="组件内"><a href="#组件内" class="headerlink" title="组件内"></a>组件内</h4><p>beforeRouterEnter,   beforeRouterUpdate  , beforeRouterLeave</p>
+<h2 id="打包完成后出现空白页"><a href="#打包完成后出现空白页" class="headerlink" title="打包完成后出现空白页"></a>打包完成后出现空白页</h2><p>路由模式：history</p>
+<p>打开vue cli官网查看配置</p>
+<p>在vue.config.js中配置publicPath，默认是<code>/</code>,要修改成<code>./</code></p>
+<p>配置后能出来部分内容，但是仍有大部分内容无法正常显示</p>
+<p>更改路由模式为：hash模式，在dist下的页面就能正常访问了</p>
+<blockquote>
+<p>前端自己测试项目，用的<code>hash</code>模式</p>
+<p>项目上线要求的是<code>history</code>模式 ： </p>
+<blockquote>
+<p>前端测试完成后改成history模式，然后代码交给后端，后端做路由重定向等配置</p>
+</blockquote>
+</blockquote>
 
                 
               </div>
@@ -339,32 +371,13 @@
             <div>
               <div class="post-metas my-3">
   
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E8%BD%AF%E5%B7%A5/" class="category-chain-item">软工</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
   
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E9%A1%B9%E7%9B%AE%E4%BB%8E0%E5%BC%80%E5%8F%91/" class="print-no-link">#项目从0开发</a>
+        <a href="/tags/vue/" class="print-no-link">#vue</a>
+      
+        <a href="/tags/router/" class="print-no-link">#router</a>
       
     </div>
   
@@ -376,8 +389,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>项目0-1开发流程</div>
-      <div>http://example.com/2024/11/08/项目0-1开发流程/</div>
+      <div>vue代理&amp;路由</div>
+      <div>http://example.com/2024/11/03/Vue/vue代理-路由/</div>
     </div>
     <div class="license-meta">
       
@@ -389,7 +402,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年11月8日</div>
+          <div>2024年11月3日</div>
         </div>
       
       
@@ -414,9 +427,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/11/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" title="响应状态码">
+                      <a href="/2024/11/03/Vue/10Vue%E6%BA%90%E7%A0%81/" title="10Vue源码">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">响应状态码</span>
+                        <span class="hidden-mobile">10Vue源码</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -424,8 +437,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/11/07/Vue/%E6%97%A0%E6%84%9F%E7%99%BB%E5%BD%95/" title="无感登录">
-                        <span class="hidden-mobile">无感登录</span>
+                      <a href="/2024/11/03/Vue/3Vuex/" title="3Vuex">
+                        <span class="hidden-mobile">3Vuex</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
